@@ -4,13 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sky Sport - Live Streaming</title>
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Arial', sans-serif;
@@ -25,412 +20,188 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            backdrop-filter: blur(10px);
             border-bottom: 3px solid #00a8ff;
             box-shadow: 0 4px 20px rgba(0, 168, 255, 0.3);
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
 
         .logo {
-            font-size: 36px;
-            font-weight: 900;
-            color: #00a8ff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-shadow: 0 0 20px rgba(0, 168, 255, 0.5);
+            font-size: 36px; font-weight: 900; color: #00a8ff;
+            text-transform: uppercase; letter-spacing: 2px;
         }
 
         .sport-text {
-            font-size: 36px;
-            font-weight: 900;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 36px; font-weight: 900; color: #fff;
+            text-transform: uppercase; letter-spacing: 2px;
         }
 
         .live-badge {
-            background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%);
-            padding: 10px 24px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
+            background: linear-gradient(135deg, #ff0000, #cc0000);
+            padding: 10px 24px; border-radius: 25px;
+            font-size: 14px; font-weight: 700; letter-spacing: 1px;
             animation: glow 2s infinite;
         }
 
         @keyframes glow {
-            0%, 100% {
-                box-shadow: 0 4px 15px rgba(255, 0, 0, 0.4);
-            }
-            50% {
-                box-shadow: 0 4px 25px rgba(255, 0, 0, 0.8);
-            }
+            0%, 100% { box-shadow: 0 4px 15px rgba(255,0,0,0.4); }
+            50% { box-shadow: 0 4px 25px rgba(255,0,0,0.8); }
         }
 
-        .container {
-            max-width: 1600px;
-            margin: 30px auto;
-            padding: 0 20px;
-        }
+        .container { max-width: 1400px; margin: 30px auto; padding: 0 20px; }
 
         .video-section {
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 25px 70px rgba(0, 0, 0, 0.7);
-            border: 2px solid rgba(0, 168, 255, 0.3);
+            background: rgba(0,0,0,0.6);
+            border-radius: 12px; overflow: hidden;
+            box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+            border: 2px solid rgba(0,168,255,0.3);
         }
 
         .video-header {
-            background: linear-gradient(135deg, #00a8ff 0%, #0066cc 100%);
-            padding: 20px 35px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            background: linear-gradient(135deg, #00a8ff, #0066cc);
+            padding: 18px 30px;
+            display: flex; align-items: center; justify-content: space-between;
         }
 
-        .video-title {
-            font-size: 26px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .video-title { font-size: 22px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
         .live-indicator {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(0, 0, 0, 0.4);
-            padding: 8px 20px;
-            border-radius: 25px;
-            border: 2px solid #ff0000;
+            display: flex; align-items: center; gap: 10px;
+            background: rgba(0,0,0,0.4); padding: 8px 20px;
+            border-radius: 25px; border: 2px solid #ff0000;
         }
 
         .live-dot {
-            width: 12px;
-            height: 12px;
-            background: #ff0000;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
+            width: 12px; height: 12px; background: #ff0000;
+            border-radius: 50%; animation: pulse 1.5s infinite;
             box-shadow: 0 0 10px #ff0000;
         }
 
         @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.6;
-                transform: scale(1.3);
-            }
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(1.3); }
         }
 
-        .video-wrapper {
+        .iframe-wrapper {
             position: relative;
+            width: 100%;
             padding-bottom: 56.25%;
             background: #000;
         }
 
-        video {
+        .iframe-wrapper iframe {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            outline: none;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            border: none;
         }
 
         .controls {
-            padding: 25px 35px;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 30, 60, 0.9) 100%);
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
+            padding: 20px 30px;
+            background: linear-gradient(180deg, rgba(0,0,0,0.8), rgba(0,30,60,0.9));
+            display: flex; gap: 12px; align-items: center; flex-wrap: wrap;
         }
 
         .btn {
-            padding: 12px 28px;
-            border: none;
-            border-radius: 8px;
-            font-size: 15px;
-            font-weight: 700;
-            cursor: pointer;
+            padding: 11px 24px; border: none; border-radius: 8px;
+            font-size: 14px; font-weight: 700; cursor: pointer;
             transition: all 0.3s ease;
-            background: linear-gradient(135deg, #00a8ff 0%, #0066cc 100%);
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(0, 168, 255, 0.3);
+            background: linear-gradient(135deg, #00a8ff, #0066cc);
+            color: white; text-transform: uppercase; letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(0,168,255,0.3);
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 168, 255, 0.5);
-            background: linear-gradient(135deg, #0099e6 0%, #0055b3 100%);
-        }
-
-        .btn:active {
-            transform: translateY(0);
-        }
-
-        .status {
-            margin-left: auto;
-            padding: 10px 20px;
-            background: rgba(0, 168, 255, 0.2);
-            border-radius: 6px;
-            font-size: 14px;
-            font-weight: 600;
-            border: 1px solid rgba(0, 168, 255, 0.4);
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-
-        .info-card {
-            background: rgba(0, 30, 60, 0.6);
-            padding: 30px;
-            border-radius: 12px;
-            border: 2px solid rgba(0, 168, 255, 0.2);
-            transition: all 0.3s ease;
-        }
-
-        .info-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(0, 168, 255, 0.6);
-            box-shadow: 0 15px 40px rgba(0, 168, 255, 0.3);
-            background: rgba(0, 40, 80, 0.7);
-        }
-
-        .info-card h3 {
-            font-size: 18px;
-            margin-bottom: 12px;
-            color: #00a8ff;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .info-card p {
-            color: rgba(255, 255, 255, 0.8);
-            line-height: 1.7;
-            font-size: 14px;
-        }
-
-        .loading {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 20px;
-            color: #00a8ff;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+        .btn:hover { transform: translateY(-3px); box-shadow: 0 8px 25px rgba(0,168,255,0.5); }
+        .btn:active { transform: translateY(0); }
 
         .quality-badge {
-            background: linear-gradient(135deg, #00ff00 0%, #00cc00 100%);
-            padding: 4px 12px;
-            border-radius: 4px;
-            font-size: 11px;
-            font-weight: 700;
-            color: #000;
-            margin-left: 10px;
+            background: linear-gradient(135deg, #00ff00, #00cc00);
+            padding: 4px 12px; border-radius: 4px;
+            font-size: 11px; font-weight: 700; color: #000; margin-left: 10px;
         }
 
         @media (max-width: 768px) {
-            .header {
-                padding: 15px 20px;
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .logo, .sport-text {
-                font-size: 24px;
-            }
-
-            .video-title {
-                font-size: 18px;
-            }
-
-            .controls {
-                justify-content: center;
-                padding: 20px;
-            }
-
-            .btn {
-                padding: 10px 20px;
-                font-size: 13px;
-            }
+            .header { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .logo, .sport-text { font-size: 24px; }
+            .controls { justify-content: center; padding: 15px; }
+            .btn { padding: 10px 18px; font-size: 13px; }
         }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo-container">
-            <div class="logo">SKY</div>
-            <div class="sport-text">SPORT</div>
-        </div>
-        <div class="live-badge">● LIVE NOW</div>
+
+<div class="header">
+    <div class="logo-container">
+        <div class="logo">SKY</div>
+        <div class="sport-text">SPORT</div>
     </div>
+    <div class="live-badge">● LIVE NOW</div>
+</div>
 
-    <div class="container">
-        <div class="video-section">
-            <div class="video-header">
-                <div class="video-title">
-                    Live Sports Coverage
-                    <span class="quality-badge">HD</span>
-                </div>
-                <div class="live-indicator">
-                    <div class="live-dot"></div>
-                    <span style="font-weight: 700; letter-spacing: 1px;">LIVE</span>
-                </div>
+<div class="container">
+    <div class="video-section">
+
+        <div class="video-header">
+            <div class="video-title">
+                Live Sports Coverage
+                <span class="quality-badge">HD</span>
             </div>
-
-            <div class="video-wrapper">
-                <div class="loading" id="loading">Loading Stream...</div>
-                <video id="video" controls autoplay></video>
-            </div>
-
-            <div class="controls">
-                <button class="btn" onclick="playStream()">▶ Play</button>
-                <button class="btn" onclick="pauseStream()">⏸ Pause</button>
-                <button class="btn" onclick="reloadStream()">🔄 Reload</button>
-                <button class="btn" onclick="toggleFullscreen()">⛶ Fullscreen</button>
-                <div class="status" id="status">Initializing...</div>
+            <div class="live-indicator">
+                <div class="live-dot"></div>
+                <span style="font-weight:700;letter-spacing:1px;">LIVE</span>
             </div>
         </div>
 
+        <div class="iframe-wrapper" id="iframeWrapper">
+            <iframe
+                id="streamFrame"
+                src="https://dadocric.st/player.php?id=crich2"
+                allowfullscreen
+                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                scrolling="no"
+                frameborder="0">
+            </iframe>
+        </div>
 
-    <script>
-        const video = document.getElementById('video');
-        const loading = document.getElementById('loading');
-        const status = document.getElementById('status');
-        const streamUrl = 'https://dadocric.st/player.php?id=crich2';
+        <div class="controls">
+            <button class="btn" onclick="reloadStream()">🔄 Reload</button>
+            <button class="btn" onclick="enterFullscreen()">⛶ Fullscreen</button>
+        </div>
 
-        function initStream() {
-            if (Hls.isSupported()) {
-                const hls = new Hls({
-                    enableWorker: true,
-                    lowLatencyMode: true,
-                    backBufferLength: 90,
-                    maxBufferLength: 30,
-                    maxMaxBufferLength: 60
-                });
+    </div>
+</div>
 
-                hls.loadSource(streamUrl);
-                hls.attachMedia(video);
+<script>
+    function reloadStream() {
+        const frame = document.getElementById('streamFrame');
+        frame.src = frame.src;
+    }
 
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    loading.style.display = 'none';
-                    status.textContent = '● Stream Ready';
-                    video.play().catch(e => {
-                        status.textContent = 'Click Play to Start';
-                    });
-                });
+    function enterFullscreen() {
+        const wrapper = document.getElementById('iframeWrapper');
+        const frame = document.getElementById('streamFrame');
 
-                hls.on(Hls.Events.ERROR, function(event, data) {
-                    if (data.fatal) {
-                        switch(data.type) {
-                            case Hls.ErrorTypes.NETWORK_ERROR:
-                                status.textContent = 'Network Error - Retrying...';
-                                setTimeout(() => {
-                                    hls.startLoad();
-                                }, 1000);
-                                break;
-                            case Hls.ErrorTypes.MEDIA_ERROR:
-                                status.textContent = 'Media Error - Recovering...';
-                                hls.recoverMediaError();
-                                break;
-                            default:
-                                status.textContent = 'Fatal Error - Please Reload';
-                                hls.destroy();
-                                break;
-                        }
-                    }
-                });
+        const req = wrapper.requestFullscreen
+            || wrapper.webkitRequestFullscreen
+            || wrapper.mozRequestFullScreen
+            || wrapper.msRequestFullscreen;
 
-                hls.on(Hls.Events.LEVEL_LOADED, function(event, data) {
-                    status.textContent = '● Broadcasting';
-                });
-
-                window.hls = hls;
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                video.src = streamUrl;
-                video.addEventListener('loadedmetadata', function() {
-                    loading.style.display = 'none';
-                    status.textContent = '● Stream Ready';
-                    video.play();
-                });
-            } else {
-                status.textContent = 'HLS Not Supported';
-                loading.textContent = 'Browser not supported. Please use Chrome, Firefox, or Safari.';
-            }
+        if (req) {
+            req.call(wrapper).catch(() => {
+                const req2 = frame.requestFullscreen
+                    || frame.webkitRequestFullscreen
+                    || frame.mozRequestFullScreen
+                    || frame.msRequestFullscreen;
+                if (req2) req2.call(frame).catch(() => {});
+            });
         }
+    }
 
-        function playStream() {
-            video.play();
-            status.textContent = '● Playing';
-        }
+    // Auto-trigger fullscreen on first click inside the player
+    document.getElementById('iframeWrapper').addEventListener('click', function () {
+        setTimeout(enterFullscreen, 300);
+    }, { once: true });
+</script>
 
-        function pauseStream() {
-            video.pause();
-            status.textContent = 'Paused';
-        }
-
-        function reloadStream() {
-            loading.style.display = 'block';
-            status.textContent = 'Reloading Stream...';
-            if (window.hls) {
-                window.hls.destroy();
-            }
-            setTimeout(() => {
-                initStream();
-            }, 500);
-        }
-
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                video.requestFullscreen().catch(err => {
-                    status.textContent = 'Fullscreen Error';
-                });
-            } else {
-                document.exitFullscreen();
-            }
-        }
-
-        // Initialize stream on page load
-        initStream();
-
-        // Update status on play/pause
-        video.addEventListener('play', () => {
-            if (status.textContent !== 'Reloading Stream...') {
-                status.textContent = '● Playing';
-            }
-        });
-
-        video.addEventListener('pause', () => {
-            status.textContent = 'Paused';
-        });
-
-        video.addEventListener('waiting', () => {
-            status.textContent = 'Buffering...';
-        });
-
-        video.addEventListener('playing', () => {
-            status.textContent = '● Broadcasting';
-        });
-    </script>
 </body>
 </html>
