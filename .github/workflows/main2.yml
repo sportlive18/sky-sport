@@ -1,32 +1,92 @@
-# ── 7. Verify output ───────────────────────────────────────────────
-- name: Check playlist output
-  run: |
-    if [ ! -f playlists/live.m3u ]; then
-      echo "ERROR: playlists/live.m3u was not created"
-      exit 1
-    fi
-    echo "playlists/live.m3u size: $(wc -l < playlists/live.m3u) lines"
-    head -30 playlists/live.m3u
+name: Update Playlist
 
-# ── 8. Commit & push ───────────────────────────────────────────────
-- name: Commit and Push Changes
-  run: |
-    git config user.name  "github-actions[bot]"
-    git config user.email "github-actions[bot]@users.noreply.github.com"
+on:
+  schedule:
+    - cron: '0 */1 * * *'    # every 1 hour
+  workflow_dispatch:          # manual trigger
 
-    git add playlists/live.m3u   # <-- change here
+concurrency:
+  group: playlist
+  cancel-in-progress: false
 
-    if git diff --cached --quiet; then
-      echo "No changes to commit (no new live streams)."
-      exit 0
-    fi
+jobs:
+  update-playlist:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
 
-    LIVE_COUNT=$(grep -c "^https\?://" playlists/live.m3u || true)   # <-- and here
-    git commit -m "Update playlist — ${LIVE_COUNT} live streams [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+    steps:
+      # ── 1. Checkout ────────────────────────────────────────────────────
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-    for i in 1 2 3 4 5; do
-      git push origin main && break
-      echo "Push rejected, retrying ($i/5)..."...
-      git pull --rebase origin main
-      sleep $((RANDOM % 8 + 2))
-    done
+      # ── 2. Python ──────────────────────────────────────────────────────
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      # ── 3. Install Playwright & its dependencies ─────────────────────
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install requests beautifulsoup4 lxml playwright
+
+      - name: Install Playwright browsers
+        run: |
+          playwright install chromium
+          playwright install-deps   # installs system dependencies for headless Chromium
+
+      # ── 4. models.txt guard ────────────────────────────────────────────
+      - name: Ensure models.txt exists
+        run: |
+          if [ ! -f models.txt ]; then
+            echo "models.txt not found — creating empty file"
+            touch models.txt
+          else
+            echo "models.txt found:"
+            cat models.txt
+          fi
+
+      # ── 5. Run scraper ─────────────────────────────────────────────────
+      - name: Run main.py
+        run: |
+          python main.py
+        timeout-minutes: 45
+
+      # ── 6. Verify output ───────────────────────────────────────────────
+      - name: Check playlist output
+        run: |
+          if [ ! -f playlists/live.m3u ]; then
+            echo "ERROR: playlists/live.m3u was not created"
+            exit 1
+          fi
+          echo "playlists/live.m3u size: $(wc -l < playlists/live.m3u) lines"
+          echo "--- First 30 lines ---"
+          head -30 playlists/live.m3u
+
+      # ── 7. Commit & push ───────────────────────────────────────────────
+      - name: Commit and Push Changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add playlists/live.m3u
+
+          if git diff --cached --quiet; then
+            echo "No changes to commit (no new live streams)."
+            exit 0
+          fi
+
+          LIVE_COUNT=$(grep -c "^https\?://" playlists/live.m3u || true)
+          git commit -m "Update playlist — ${LIVE_COUNT} live streams [$(date -u '+%Y-%m-%d %H:%M UTC')]"
+
+          for i in 1 2 3 4 5; do
+            git push origin main && break
+            echo "Push rejected, retrying ($i/5)..."
+            git pull --rebase origin main
+            sleep $((RANDOM % 8 + 2))
+          done
