@@ -2,7 +2,7 @@ name: Update Booble Playlist
 
 on:
   schedule:
-    - cron: '0 */2 * * *'    # every 2 hours (live streams change frequently)
+    - cron: '0 */1 * * *'    # every 1 hours (live streams change frequently)
   workflow_dispatch:          # manual trigger
 
 concurrency:
