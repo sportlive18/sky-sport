@@ -41,6 +41,11 @@ MAX_LIVE_MODELS = 0     # 0 = scrape ALL live models; set e.g. 100 to cap
 STREAM_WORKERS = 5      # parallel Chrome tabs for stream fetching
 AVATAR_WORKERS = 20     # parallel avatar HEAD checks
 
+# Extra pages whose models are treated as favourites
+FAVOURITE_PAGES = [
+    f"{SITE_BASE}/country/girls/india",   # Indian girls → favourites
+]
+
 SKIP_WORDS = {
     "girl", "couple", "trans", "guy", "login", "signup", "register",
     "terms", "privacy", "contact", "about", "faq", "help", "support",
@@ -448,6 +453,47 @@ def _parse_names_from_html(html, seen):
     return names
 
 
+def scrape_favourite_pages(existing_fav_set=None):
+    """
+    Scrape FAVOURITE_PAGES (e.g. country/girls/india) and return
+    a list of model names to be treated as favourites.
+    Paginates each URL until no new names are found.
+    """
+    existing_fav_set = existing_fav_set or set()
+    names = []
+    seen = set(existing_fav_set)
+    session = requests.Session()
+    session.headers.update(HEADERS)
+
+    for base_url in FAVOURITE_PAGES:
+        print(f"\n[FAV-PAGE] Scraping: {base_url}")
+        page_urls = [base_url] + [f"{base_url}?page={pg}" for pg in range(2, 30)] \
+                               + [f"{base_url}/page/{pg}/" for pg in range(2, 30)]
+
+        for page_url in page_urls:
+            try:
+                resp = session.get(page_url, timeout=12, allow_redirects=True)
+                if resp.status_code != 200:
+                    continue
+                # Redirected off paginated URL → end of pages
+                if resp.url != page_url and ("page=" in page_url or "/page/" in page_url):
+                    break
+
+                new = _parse_names_from_html(resp.text, seen)
+                if not new:
+                    break
+
+                names.extend(new)
+                print(f"  {page_url} → +{len(new)} (fav-page total: {len(names)})")
+                time.sleep(0.3)
+
+            except Exception as e:
+                print(f"  [WARN] {page_url}: {e}")
+
+    print(f"[FAV-PAGE] Total extra favourites found: {len(names)}")
+    return names
+
+
 def scrape_all_live_models(fav_set=None):
     """
     Scrape ALL live models from booble.com across all categories and pages.
@@ -456,10 +502,7 @@ def scrape_all_live_models(fav_set=None):
     fav_set = fav_set or set()
 
     categories = [
-        ("girl",   [f"{SITE_BASE}/", f"{SITE_BASE}/girls"]),
-        ("couple", [f"{SITE_BASE}/couple", f"{SITE_BASE}/couples"]),
-        ("trans",  [f"{SITE_BASE}/trans"]),
-        ("guy",    [f"{SITE_BASE}/guys", f"{SITE_BASE}/guy"]),
+        ("girl", [f"{SITE_BASE}/", f"{SITE_BASE}/girls"]),
     ]
 
     result = {cat: [] for cat, _ in categories}
@@ -543,10 +586,7 @@ def scrape_all_live_models(fav_set=None):
 # ─────────────────────────────────────────
 
 CATEGORY_LABELS = {
-    "girl":   "👩 Girls",
-    "couple": "👫 Couples",
-    "trans":  "🏳️‍⚧️ Trans",
-    "guy":    "👨 Guys",
+    "girl": "👩 Girls",
 }
 
 
@@ -599,17 +639,25 @@ def main():
         favorite_names = load_models(MODELS_FILE)
         fav_set = {n.lower() for n in favorite_names}
 
-        # ── 2. Scrape ALL live models from site ────────────────────────────
-        print("\n--- Discovering ALL Live Models ---")
+        # ── 2. Scrape favourite pages (e.g. India girls) ──────────────────
+        print("\n--- Scraping Favourite Pages ---")
+        page_favs = scrape_favourite_pages(existing_fav_set=fav_set)
+        # Merge: page favs come first (higher priority in playlist)
+        all_fav_names = list(dict.fromkeys(
+            [n for n in page_favs if n.lower() not in fav_set] + favorite_names
+        ))
+        fav_set = {n.lower() for n in all_fav_names}
+        print(f"  Total favourites (models.txt + pages): {len(all_fav_names)}")
+
+        # ── 3. Scrape ALL live girls from site ────────────────────────────
+        print("\n--- Discovering ALL Live Girls ---")
         discovered = scrape_all_live_models(fav_set=fav_set)
 
-        # ── 3. Resolve favorites (parallel) ───────────────────────────────
+        # ── 4. Resolve favorites (parallel) ───────────────────────────────
         favorite_live = {}
-        if favorite_names:
-            print(f"\n--- Resolving {len(favorite_names)} Favorites ---")
-            favorite_live = resolve_batch(favorite_names, "favorites")
-            for s in favorite_live.values():
-                pass  # is_favourite flag not needed here; generate_m3u handles it
+        if all_fav_names:
+            print(f"\n--- Resolving {len(all_fav_names)} Favorites ---")
+            favorite_live = resolve_batch(all_fav_names, "favorites")
 
         # ── 4. Resolve all discovered models (parallel) ───────────────────
         category_live = {}
