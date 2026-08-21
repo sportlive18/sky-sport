@@ -66,8 +66,7 @@ KNOWN_SOURCES = ["stripchat", "chaturbate", "bongacams", "camsoda", "cam4"]
 # 0 = scrape ALL live models; set e.g. 200 to cap
 MAX_LIVE_MODELS = 0
 
-OUTPUT_DIR  = Path("playlists")
-OUTPUT_FILE = OUTPUT_DIR / "live.m3u"
+OUTPUT_FILE = Path("live.m3u")   # <--- now at repository root
 
 # Concurrency
 API_WORKERS     = 10   # parallel direct-API calls
@@ -569,7 +568,7 @@ def main():
     logger.info("Live Cam Playlist Generator — chococams.com (Optimized)")
     logger.info("=" * 60)
 
-    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
+    # No need to create OUTPUT_DIR – file goes to root
 
     if HAS_PLAYWRIGHT:
         BROWSER.start()
