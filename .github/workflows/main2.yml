@@ -1,4 +1,4 @@
-name: Update Booble Playlist
+name: Update Playlist
 
 on:
   schedule:
