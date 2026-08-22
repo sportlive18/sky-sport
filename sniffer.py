@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-PornHao Batch Scraper – automatically reads model.txt
-Usage: python pornhao_batch.py
+PornHao Batch Scraper – automatically reads model.txt and selects video quality.
+Usage: python pornhao_batch.py --quality 1080
 """
 
 import re
@@ -102,9 +102,13 @@ def extract_video_urls(driver):
     log.info(f"Found {len(video_urls)} video page URLs.")
     return video_urls
 
-# ─── Extract MP4 from a Video Page ──────────────────────
+# ─── Extract MP4 from a Video Page with Quality Selection ──
 
-def get_mp4_from_video_page(video_url):
+def get_mp4_from_video_page(video_url, preferred_quality="best"):
+    """
+    Fetch the video page, extract all MP4 sources, and pick the best match
+    for the preferred quality (e.g., '1080', '720', '480', '240', 'best').
+    """
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
         'Referer': BASE_URL + '/'
@@ -117,23 +121,89 @@ def get_mp4_from_video_page(video_url):
         return None
 
     soup = BeautifulSoup(r.text, 'html.parser')
+    sources = []
 
+    # 1. Look for <source> tags inside <video>
     video_tag = soup.find('video')
-    if video_tag and video_tag.get('src'):
-        mp4 = video_tag['src']
-        mp4 = mp4.replace('&amp;', '&')
-        return mp4
+    if video_tag:
+        for source in video_tag.find_all('source', src=True):
+            src = source['src'].strip()
+            if src and '.mp4' in src:
+                # Try to get label or resolution from source attributes
+                label = source.get('label', '') or source.get('title', '') or ''
+                # Also check src for resolution indicators
+                quality = extract_quality_from_url(src) or extract_quality_from_label(label)
+                sources.append((quality, src))
 
-    mp4_pattern = re.compile(r'(https?://[^\s"\']+\.mp4[^\s"\']*)')
-    match = mp4_pattern.search(r.text)
+        # If video tag has a src directly
+        if video_tag.get('src') and '.mp4' in video_tag['src']:
+            src = video_tag['src'].strip()
+            quality = extract_quality_from_url(src)
+            sources.append((quality, src))
+
+    # 2. Fallback: search for any .mp4 URL in page source (including scripts)
+    if not sources:
+        mp4_pattern = re.compile(r'(https?://[^\s"\']+\.mp4[^\s"\']*)')
+        for match in mp4_pattern.findall(r.text):
+            quality = extract_quality_from_url(match)
+            sources.append((quality, match))
+
+    # Remove duplicates and sort by quality
+    sources = list(set(sources))  # deduplicate by URL
+    # Sort by quality descending (higher number = higher quality)
+    # quality: int, None for unknown
+    def sort_key(item):
+        q = item[0]
+        if q is None:
+            return -1
+        return q
+    sources.sort(key=sort_key, reverse=True)
+
+    if not sources:
+        return None
+
+    # Select the best match based on preferred_quality
+    best_url = None
+    if preferred_quality == "best":
+        best_url = sources[0][1]  # highest quality
+    else:
+        # Try to find exact match
+        target = int(preferred_quality) if preferred_quality.isdigit() else None
+        if target is not None:
+            for q, url in sources:
+                if q == target:
+                    best_url = url
+                    break
+            if not best_url:
+                # Fallback to highest if exact not found
+                best_url = sources[0][1]
+        else:
+            best_url = sources[0][1]  # fallback to best
+
+    return best_url
+
+def extract_quality_from_url(url):
+    """Extract resolution (e.g., 1080, 720) from URL or filename."""
+    # Look for patterns like 1080p, 720p, 480p, 240p, or numbers in filename
+    match = re.search(r'[_-](\d{3,4})p?', url, re.I)
     if match:
-        return match.group(1)
-
+        return int(match.group(1))
+    # Also check for /1080/ or /720/ in path
+    match = re.search(r'/(1080|720|480|240)/', url)
+    if match:
+        return int(match.group(1))
     return None
 
-# ─── Scrape Single Model ────────────────────────────────────────────────
+def extract_quality_from_label(label):
+    """Try to get quality from label text (e.g., '1080p', 'HD')."""
+    match = re.search(r'(\d{3,4})p?', label)
+    if match:
+        return int(match.group(1))
+    return None
 
-def scrape_model(model_name, max_videos=None):
+# ─── Scrape Single Model ────────────────────────────────────────
+
+def scrape_model(model_name, max_videos=None, quality="best"):
     model_url = urljoin(BASE_URL, f"/models/{model_name}/")
     log.info(f"Scraping model: {model_url}")
 
@@ -157,7 +227,7 @@ def scrape_model(model_name, max_videos=None):
     results = []
     for idx, v_url in enumerate(video_page_urls, 1):
         log.info(f"[{idx}/{len(video_page_urls)}] Processing: {v_url}")
-        mp4 = get_mp4_from_video_page(v_url)
+        mp4 = get_mp4_from_video_page(v_url, preferred_quality=quality)
         if mp4:
             title = v_url.split('/')[-1].replace('-', ' ').title()
             results.append({
@@ -176,13 +246,13 @@ def scrape_model(model_name, max_videos=None):
 
 # ─── Batch Scrape ──────────────────────────────────────────────
 
-def scrape_models(model_names, max_videos=None):
+def scrape_models(model_names, max_videos=None, quality="best"):
     all_results = []
     for model in model_names:
         log.info(f"\n{'='*60}")
         log.info(f"Processing model: {model}")
         log.info(f"{'='*60}")
-        results = scrape_model(model.strip(), max_videos)
+        results = scrape_model(model.strip(), max_videos, quality)
         all_results.extend(results)
         time.sleep(2)
     return all_results
@@ -217,6 +287,7 @@ def main():
     parser.add_argument('--models', default='', help='Comma-separated list of model names (optional)')
     parser.add_argument('--models-file', default='model.txt', help='File containing model names (default: model.txt)')
     parser.add_argument('--max', type=int, default=None, help='Max videos per model')
+    parser.add_argument('--quality', default='best', help='Video quality: best, 1080, 720, 480, 240')
     parser.add_argument('--group-title', default='Movies - Filmes | [XXX] Adultos', help='Group title for M3U')
     parser.add_argument('--output-json', default='playlist.json', help='Output JSON file')
     parser.add_argument('--output-m3u', default='playlist.m3u', help='Output M3U file')
@@ -247,8 +318,9 @@ def main():
         return
 
     log.info(f"Processing {len(model_names)} models: {model_names}")
+    log.info(f"Requested quality: {args.quality}")
 
-    entries = scrape_models(model_names, max_videos=args.max)
+    entries = scrape_models(model_names, max_videos=args.max, quality=args.quality)
     if entries:
         save_playlist(entries, json_file=args.output_json, m3u_file=args.output_m3u, 
                       group_title=args.group_title)
