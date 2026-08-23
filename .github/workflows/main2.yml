@@ -57,16 +57,16 @@ jobs:
           python main.py
         timeout-minutes: 45
 
-      # ── 6. Verify output ───────────────────────────────────────────────
+      # ── 6. Verify output (now at root) ────────────────────────────────
       - name: Check playlist output
         run: |
-          if [ ! -f playlists/live.m3u ]; then
-            echo "ERROR: playlists/live.m3u was not created"
+          if [ ! -f live.m3u ]; then
+            echo "ERROR: live.m3u was not created"
             exit 1
           fi
-          echo "playlists/live.m3u size: $(wc -l < playlists/live.m3u) lines"
+          echo "live.m3u size: $(wc -l < live.m3u) lines"
           echo "--- First 30 lines ---"
-          head -30 playlists/live.m3u
+          head -30 live.m3u
 
       # ── 7. Commit & push ───────────────────────────────────────────────
       - name: Commit and Push Changes
@@ -74,14 +74,14 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git add playlists/live.m3u
+          git add live.m3u
 
           if git diff --cached --quiet; then
             echo "No changes to commit (no new live streams)."
             exit 0
           fi
 
-          LIVE_COUNT=$(grep -c "^https\?://" playlists/live.m3u || true)
+          LIVE_COUNT=$(grep -c "^https\?://" live.m3u || true)
           git commit -m "Update playlist — ${LIVE_COUNT} live streams [$(date -u '+%Y-%m-%d %H:%M UTC')]"
 
           for i in 1 2 3 4 5; do
