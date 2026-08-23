@@ -6,7 +6,8 @@ Live Cam Playlist Generator — chococams.com (Optimized)
 - Scrapes ALL live models from listing (paginated)
 - Indian girls page → Favourites group
 - Named favourites from FAVOURITE_MODELS list → Favourites group
-- Browser used only as last resort
+- Browser used ONLY on the main thread (sequentially, as last resort)
+- Output: live.m3u (root of repository)
 """
 
 import re
@@ -66,12 +67,12 @@ KNOWN_SOURCES = ["stripchat", "chaturbate", "bongacams", "camsoda", "cam4"]
 # 0 = scrape ALL live models; set e.g. 200 to cap
 MAX_LIVE_MODELS = 0
 
-OUTPUT_FILE = Path("live.m3u")   # <--- now at repository root
+OUTPUT_FILE = Path("live.m3u")   # directly in repository root
 
 # Concurrency
 API_WORKERS     = 10   # parallel direct-API calls
 PAGE_WORKERS    = 8    # parallel requests-based page fetches
-BROWSER_WORKERS = 2    # Playwright tabs (keep low)
+BROWSER_WORKERS = 2    # Playwright tabs (used only main thread)
 
 HEADERS = {
     "User-Agent": (
@@ -116,11 +117,13 @@ class ModelStream:
 
 
 # ---------------------------------------------------------------------------
-# SHARED PLAYWRIGHT BROWSER (singleton, thread-safe tabs)
+# SHARED PLAYWRIGHT BROWSER (singleton, thread-safe tabs – used only main thread)
 # ---------------------------------------------------------------------------
 
 class BrowserPool:
-    """Single Playwright browser; semaphore limits concurrent tabs."""
+    """Single Playwright browser; semaphore limits concurrent tabs.
+       NOTE: All calls to fetch() must happen from the MAIN thread.
+    """
 
     def __init__(self, max_tabs=BROWSER_WORKERS):
         self._pw      = None
@@ -149,7 +152,9 @@ class BrowserPool:
             self._started = False
 
     def fetch(self, url, wait_ms=10000):
-        """Open a tab, wait, return (html, [captured_m3u8_urls])."""
+        """Open a tab, wait, return (html, [captured_m3u8_urls]).
+           Must be called from the main thread.
+        """
         if not self._started:
             return "", []
         self._sem.acquire()
@@ -351,11 +356,11 @@ def try_direct_apis(name):
 
 
 # ---------------------------------------------------------------------------
-# CHOCOCAMS PAGE SCRAPING
+# CHOCOCAMS PAGE SCRAPING (NO BROWSER)
 # ---------------------------------------------------------------------------
 
 def scrape_model_requests(name):
-    """Try all source URL patterns with plain HTTP."""
+    """Try all source URL patterns with plain HTTP (no browser)."""
     urls = [(f"{BASE_URL}/model/{src}/{name}", src) for src in KNOWN_SOURCES]
     urls.append((f"{BASE_URL}/model/{name}", "unknown"))
     for url, source in urls:
@@ -369,8 +374,12 @@ def scrape_model_requests(name):
     return None
 
 
+# ---------------------------------------------------------------------------
+# BROWSER FALLBACK (to be called ONLY from main thread, sequentially)
+# ---------------------------------------------------------------------------
+
 def scrape_model_browser(name):
-    """Browser fallback using shared BrowserPool."""
+    """Browser fallback using shared BrowserPool – ONLY call from main thread."""
     if not HAS_PLAYWRIGHT or not BROWSER._started:
         return None
     for source in KNOWN_SOURCES:
@@ -385,13 +394,13 @@ def scrape_model_browser(name):
     return None
 
 
-def resolve_model(name):
-    """Full pipeline: direct APIs → requests scrape → browser."""
-    return (
-        try_direct_apis(name)
-        or scrape_model_requests(name)
-        or scrape_model_browser(name)
-    )
+# ---------------------------------------------------------------------------
+# FAST RESOLUTION (NO BROWSER) – used in threaded pool
+# ---------------------------------------------------------------------------
+
+def resolve_model_fast(name):
+    """Try direct APIs and HTTP scraping only – NO browser."""
+    return try_direct_apis(name) or scrape_model_requests(name)
 
 
 # ---------------------------------------------------------------------------
@@ -445,6 +454,7 @@ def scrape_pages(start_urls, seen, label="listing", is_favourite_page=False):
     """
     Paginate through start_urls, collecting model info dicts.
     Returns list of dicts with is_favourite pre-set.
+    NOTE: browser fallback for listing is done on the main thread (safe).
     """
     session = get_session()
     collected = []
@@ -468,7 +478,7 @@ def scrape_pages(start_urls, seen, label="listing", is_favourite_page=False):
 
             items = _models_from_html(resp.text, url, seen)
             if not items:
-                # Try browser for JS-rendered listing
+                # Try browser for JS-rendered listing – main thread safe
                 html, _ = BROWSER.fetch(url, wait_ms=6000)
                 if html:
                     items = _models_from_html(html, url, seen)
@@ -488,39 +498,62 @@ def scrape_pages(start_urls, seen, label="listing", is_favourite_page=False):
 
 
 # ---------------------------------------------------------------------------
-# PARALLEL STREAM RESOLUTION
+# PARALLEL STREAM RESOLUTION (fast part) + sequential browser fallback
 # ---------------------------------------------------------------------------
 
 def resolve_batch(model_infos, label=""):
     """
-    Resolve HLS streams for a list of model info dicts in parallel.
-    Returns list of ModelStream.
+    Resolve HLS streams:
+    - First, parallel attempts via API/HTTP (no browser).
+    - Then, sequential browser fallback for any remaining unresolved models.
     """
     results = []
-    lock    = threading.Lock()
-    total   = len(model_infos)
-    done    = [0]
+    unresolved = []          # will hold (index, info) for browser fallback
+    lock = threading.Lock()
+    total = len(model_infos)
+    done = [0]
 
-    def _resolve(info):
-        name   = info["name"]
-        stream = resolve_model(name)
+    def _resolve_fast(info):
+        name = info["name"]
+        stream = resolve_model_fast(name)
         with lock:
             done[0] += 1
-            tag = "✅" if stream else "❌"
+            tag = "✅" if stream else "⏳"
             logger.info(f"  {tag} [{done[0]}/{total}] {name}")
         if not stream:
             return None
+        # Set favourite flag and thumb if missing
         stream.is_favourite = info.get("is_favourite", False) or name.lower() in FAVOURITE_SET
         if not stream.thumb_url:
             stream.thumb_url = info.get("thumb", "")
         return stream
 
+    # ── Parallel fast resolution ──────────────────────────────────────
     with ThreadPoolExecutor(max_workers=API_WORKERS) as ex:
-        futures = {ex.submit(_resolve, info): info for info in model_infos}
+        # Submit all tasks; store future and info
+        futures = {ex.submit(_resolve_fast, info): info for info in model_infos}
         for fut in as_completed(futures):
             r = fut.result()
+            info = futures[fut]
             if r:
                 results.append(r)
+            else:
+                unresolved.append(info)   # keep for browser fallback
+
+    # ── Sequential browser fallback (main thread) ────────────────────
+    if unresolved:
+        logger.info(f"\n--- Browser fallback for {len(unresolved)} models (sequential) ---")
+        for idx, info in enumerate(unresolved, 1):
+            name = info["name"]
+            logger.info(f"  🔍 [{idx}/{len(unresolved)}] {name} (browser)")
+            stream = scrape_model_browser(name)   # uses the shared BROWSER (main thread only)
+            if stream:
+                stream.is_favourite = info.get("is_favourite", False) or name.lower() in FAVOURITE_SET
+                if not stream.thumb_url:
+                    stream.thumb_url = info.get("thumb", "")
+                results.append(stream)
+            else:
+                logger.info(f"  ❌ {name} not found")
 
     return results
 
@@ -568,8 +601,6 @@ def main():
     logger.info("Live Cam Playlist Generator — chococams.com (Optimized)")
     logger.info("=" * 60)
 
-    # No need to create OUTPUT_DIR – file goes to root
-
     if HAS_PLAYWRIGHT:
         BROWSER.start()
 
@@ -601,7 +632,7 @@ def main():
         logger.info(f"  Listing → {len(live_items)} additional models")
         all_info.extend(live_items)
 
-        # ── 4. Resolve all in parallel ────────────────────────────────────
+        # ── 4. Resolve all in parallel (fast) + sequential browser fallback ──
         logger.info(f"\n--- Resolving {len(all_info)} models ---")
         streams = resolve_batch(all_info)
 
