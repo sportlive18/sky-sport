@@ -1,1 +1,245 @@
-18 + 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <title>Shaka Player – DASH + ClearKey</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shaka-player@4.16.2/dist/controls.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    html,body{width:100%;height:100%;background:#000;overflow:hidden;
+      font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif}
+    #container{position:fixed;inset:0;background:#000}
+    video{width:100%;height:100%;object-fit:contain;background:#000}
+    #error{
+      position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+      color:#f87171;background:rgba(0,0,0,.85);padding:20px 28px;
+      border-radius:12px;font-size:14px;text-align:center;max-width:90%;
+      display:none;z-index:100;border:1px solid rgba(255,255,255,.1);
+      backdrop-filter:blur(6px)
+    }
+    #error.show{display:block}
+    #error .title{font-weight:700;margin-bottom:8px;font-size:16px}
+    #status{
+      position:fixed;top:12px;left:12px;z-index:99;
+      padding:6px 14px;background:rgba(8,8,8,.9);color:#ef4444;
+      border-radius:20px;font-size:11px;font-weight:500;
+      border:1px solid rgba(255,255,255,.05);opacity:0;
+      transition:opacity .3s;pointer-events:none
+    }
+    #status.show{opacity:1}
+  </style>
+</head>
+<body>
+  <div id="container">
+    <video id="video" playsinline webkit-playsinline></video>
+  </div>
+  <div id="status"></div>
+  <div id="error">
+    <div class="title">Playback Error</div>
+    <div id="errorMsg"></div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/shaka-player@4.16.2/dist/shaka-player.ui.min.js"></script>
+  <script>
+    (function () {
+      "use strict";
+
+      var $video = document.getElementById("video");
+      var $container = document.getElementById("container");
+      var $error = document.getElementById("error");
+      var $errorMsg = document.getElementById("errorMsg");
+      var $status = document.getElementById("status");
+      var statusTimer = null;
+
+      function showStatus(msg, dur) {
+        $status.textContent = msg;
+        $status.classList.add("show");
+        if (statusTimer) clearTimeout(statusTimer);
+        if (dur !== 0) {
+          statusTimer = setTimeout(function () {
+            $status.classList.remove("show");
+            statusTimer = null;
+          }, dur || 3000);
+        }
+      }
+
+      function showError(msg) {
+        $errorMsg.textContent = msg;
+        $error.classList.add("show");
+        console.error("[Player Error]", msg);
+      }
+
+      function hideError() {
+        $error.classList.remove("show");
+      }
+
+      /**
+       * Parse the query string. Supports:
+       *   ?url=https://...mpd|drmScheme=clearkey&drmLicense=keyId:key
+       * Also accepts `drmScheme` and `drmLicense` as separate query params.
+       */
+      function parseParams() {
+        var params = new URLSearchParams(location.search);
+        var url = params.get("url") || "";
+        var drmScheme = params.get("drmScheme") || "";
+        var drmLicense = params.get("drmLicense") || "";
+
+        // If the url contains a pipe, parse the combined format:
+        // url=...mpd|drmScheme=clearkey&drmLicense=keyId:key
+        if (url.indexOf("|") !== -1) {
+          var parts = url.split("|");
+          url = parts[0];
+          for (var i = 1; i < parts.length; i++) {
+            var kv = parts[i].split("=");
+            var k = decodeURIComponent(kv[0] || "").trim();
+            var v = decodeURIComponent(kv.slice(1).join("=") || "").trim();
+            if (k === "drmScheme") drmScheme = v;
+            else if (k === "drmLicense") drmLicense = v;
+          }
+        }
+
+        return {
+          url: url.trim(),
+          drmScheme: drmScheme.trim(),
+          drmLicense: drmLicense.trim()
+        };
+      }
+
+      /**
+       * Build the DRM configuration for Shaka Player.
+       * For ClearKey with a raw key (keyId:key), we use `clearKeys`.
+       * For other schemes we pass the license server URL.
+       */
+      function buildDrmConfig(scheme, license) {
+        if (!scheme || !license) return null;
+
+        scheme = scheme.toLowerCase();
+
+        // ClearKey with raw key pair: keyId:key
+        if (scheme === "clearkey") {
+          // Expect format: keyId:key  (both hex, 32 chars each)
+          var sep = license.indexOf(":");
+          if (sep === -1) {
+            throw new Error("Invalid ClearKey license. Expected keyId:key");
+          }
+          var keyId = license.substring(0, sep).trim();
+          var key = license.substring(sep + 1).trim();
+          if (!keyId || !key) {
+            throw new Error("Invalid ClearKey license. keyId or key is empty.");
+          }
+          var clearKeys = {};
+          clearKeys[keyId] = key;
+          return {
+            drm: {
+              clearKeys: clearKeys
+            }
+          };
+        }
+
+        // Other DRM schemes (widevine, playready, etc.) with a license server
+        var servers = {};
+        servers[scheme] = license;
+        return {
+          drm: {
+            servers: servers
+          }
+        };
+      }
+
+      async function initPlayer() {
+        // 1. Check browser support
+        shaka.polyfill.installAll();
+        if (!shaka.Player.isBrowserSupported()) {
+          showError("This browser is not supported by Shaka Player.");
+          return;
+        }
+
+        var params = parseParams();
+
+        if (!params.url) {
+          showError(
+            'Missing "url" parameter. Use ?url=<manifest-url>|drmScheme=clearkey&drmLicense=keyId:key'
+          );
+          return;
+        }
+
+        // 2. Create player
+        var player = new shaka.Player();
+        await player.attach($video);
+
+        // 3. Configure UI
+        var ui = new shaka.ui.Overlay(player, $container, $video);
+        ui.configure({
+          controlPanelElements: [
+            "play_pause",
+            "mute",
+            "volume",
+            "time_and_duration",
+            "spacer",
+            "quality",
+            "fullscreen"
+          ],
+          seekBarColors: {
+            base: "#a8a8a8",
+            buffered: "#7f1d1d",
+            played: "#ef4444"
+          }
+        });
+
+        // 4. Apply DRM config if present
+        try {
+          var drmConfig = buildDrmConfig(params.drmScheme, params.drmLicense);
+          if (drmConfig) {
+            player.configure(drmConfig);
+            showStatus("DRM: " + params.drmScheme, 4000);
+          }
+        } catch (e) {
+          showError("DRM configuration error: " + e.message);
+          return;
+        }
+
+        // 5. Error handling
+        player.addEventListener("error", function (ev) {
+          var err = ev.detail;
+          var code = err && err.code;
+          var category = err && err.category;
+          var msg = "Shaka error";
+          if (category !== undefined && code !== undefined) {
+            msg += " (" + category + ":" + code + ")";
+          }
+          if (err && err.data && err.data[0]) {
+            msg += " – " + String(err.data[0]).slice(0, 120);
+          }
+          showError(msg);
+        });
+
+        // 6. Load the stream
+        try {
+          showStatus("Loading stream…", 0);
+          await player.load(params.url);
+          hideError();
+          showStatus("Ready – press play", 4000);
+        } catch (e) {
+          var errMsg = e && e.message ? e.message : String(e);
+          // Try to extract more detail from Shaka error
+          if (e && e.code) {
+            errMsg += " (code " + e.code + ")";
+          }
+          showError("Failed to load stream: " + errMsg);
+          return;
+        }
+
+        // 7. Autoplay (muted to satisfy browser policies)
+        $video.muted = true;
+        $video.play().catch(function () {
+          // Autoplay blocked – user must press play
+          showStatus("Press ▶ to start playback", 5000);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", initPlayer);
+    })();
+  </script>
+</body>
+</html>
