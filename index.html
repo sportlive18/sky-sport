@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  <title>Shaka Player – DASH + ClearKey</title>
+  <title>Shaka Player – DASH + ClearKey + Headers</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/shaka-player@4.16.2/dist/controls.css">
   <style>
     *{margin:0;padding:0;box-sizing:border-box}
@@ -77,39 +77,63 @@
       /**
        * Parse the query string. Supports:
        *   ?url=https://...mpd|drmScheme=clearkey&drmLicense=keyId:key
-       * Also accepts `drmScheme` and `drmLicense` as separate query params.
+       *   ?url=https://...mpd|Cookie=...&Referer=...&Origin=...|drmScheme=clearkey&drmLicense=...
+       * Also accepts `drmScheme`, `drmLicense`, `Cookie`, `Referer`, `Origin` as separate query params.
        */
       function parseParams() {
         var params = new URLSearchParams(location.search);
         var url = params.get("url") || "";
         var drmScheme = params.get("drmScheme") || "";
         var drmLicense = params.get("drmLicense") || "";
+        var cookie = params.get("Cookie") || params.get("cookie") || "";
+        var referer = params.get("Referer") || params.get("referer") || "";
+        var origin = params.get("Origin") || params.get("origin") || "";
 
         // If the url contains a pipe, parse the combined format:
-        // url=...mpd|drmScheme=clearkey&drmLicense=keyId:key
+        // url=...mpd|key=value&key2=value2|...
         if (url.indexOf("|") !== -1) {
           var parts = url.split("|");
           url = parts[0];
+
           for (var i = 1; i < parts.length; i++) {
-            var kv = parts[i].split("=");
-            var k = decodeURIComponent(kv[0] || "").trim();
-            var v = decodeURIComponent(kv.slice(1).join("=") || "").trim();
-            if (k === "drmScheme") drmScheme = v;
-            else if (k === "drmLicense") drmLicense = v;
+            var segment = parts[i];
+
+            // Skip empty segments
+            if (!segment.trim()) continue;
+
+            // Handle multiple key=value pairs inside a segment (separated by &)
+            var pairs = segment.split("&");
+            for (var j = 0; j < pairs.length; j++) {
+              var pair = pairs[j];
+              if (!pair.trim()) continue;
+
+              var kv = pair.split("=");
+              var k = decodeURIComponent(kv[0] || "").trim();
+              var v = decodeURIComponent(kv.slice(1).join("=") || "").trim();
+
+              // Case-insensitive matching for known keys
+              var kLower = k.toLowerCase();
+              if (kLower === "drmscheme") drmScheme = v;
+              else if (kLower === "drmlicense") drmLicense = v;
+              else if (kLower === "cookie") cookie = v;
+              else if (kLower === "referer" || kLower === "referrer") referer = v;
+              else if (kLower === "origin") origin = v;
+            }
           }
         }
 
         return {
           url: url.trim(),
           drmScheme: drmScheme.trim(),
-          drmLicense: drmLicense.trim()
+          drmLicense: drmLicense.trim(),
+          cookie: cookie.trim(),
+          referer: referer.trim(),
+          origin: origin.trim()
         };
       }
 
       /**
        * Build the DRM configuration for Shaka Player.
-       * For ClearKey with a raw key (keyId:key), we use `clearKeys`.
-       * For other schemes we pass the license server URL.
        */
       function buildDrmConfig(scheme, license) {
         if (!scheme || !license) return null;
@@ -118,7 +142,6 @@
 
         // ClearKey with raw key pair: keyId:key
         if (scheme === "clearkey") {
-          // Expect format: keyId:key  (both hex, 32 chars each)
           var sep = license.indexOf(":");
           if (sep === -1) {
             throw new Error("Invalid ClearKey license. Expected keyId:key");
@@ -137,13 +160,34 @@
           };
         }
 
-        // Other DRM schemes (widevine, playready, etc.) with a license server
+        // Other DRM schemes with a license server
         var servers = {};
         servers[scheme] = license;
         return {
           drm: {
             servers: servers
           }
+        };
+      }
+
+      /**
+       * Build request filter to inject Cookie, Referer, Origin headers.
+       */
+      function buildRequestFilter(cookie, referer, origin) {
+        if (!cookie && !referer && !origin) return null;
+
+        return function (type, request) {
+          // Only apply to manifest, segment, license, and other media requests
+          if (cookie) {
+            request.headers["Cookie"] = cookie;
+          }
+          if (referer) {
+            request.headers["Referer"] = referer;
+          }
+          if (origin) {
+            request.headers["Origin"] = origin;
+          }
+          return request;
         };
       }
 
@@ -199,7 +243,22 @@
           return;
         }
 
-        // 5. Error handling
+        // 5. Apply request filter for Cookie / Referer / Origin headers
+        var requestFilter = buildRequestFilter(
+          params.cookie,
+          params.referer,
+          params.origin
+        );
+        if (requestFilter) {
+          player.getNetworkingEngine().registerRequestFilter(requestFilter);
+          var headerInfo = [];
+          if (params.cookie) headerInfo.push("Cookie");
+          if (params.referer) headerInfo.push("Referer");
+          if (params.origin) headerInfo.push("Origin");
+          showStatus("Headers: " + headerInfo.join(", "), 4000);
+        }
+
+        // 6. Error handling
         player.addEventListener("error", function (ev) {
           var err = ev.detail;
           var code = err && err.code;
@@ -214,7 +273,7 @@
           showError(msg);
         });
 
-        // 6. Load the stream
+        // 7. Load the stream
         try {
           showStatus("Loading stream…", 0);
           await player.load(params.url);
@@ -222,7 +281,6 @@
           showStatus("Ready – press play", 4000);
         } catch (e) {
           var errMsg = e && e.message ? e.message : String(e);
-          // Try to extract more detail from Shaka error
           if (e && e.code) {
             errMsg += " (code " + e.code + ")";
           }
@@ -230,10 +288,9 @@
           return;
         }
 
-        // 7. Autoplay (muted to satisfy browser policies)
+        // 8. Autoplay (muted to satisfy browser policies)
         $video.muted = true;
         $video.play().catch(function () {
-          // Autoplay blocked – user must press play
           showStatus("Press ▶ to start playback", 5000);
         });
       }
