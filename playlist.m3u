@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-17 22:47:30 UTC
+# Updated : 2026-09-18 01:09:32 UTC
 # Source  : booble.com
 # Favs    : 0
 # Girl    : 1
 # Total   : 1
 
-#EXTINF:-1 tvg-id="mia-reeves" tvg-name="mia-reeves" tvg-logo="https://booble.com/avatar/mia-reeves.jpeg" group-title="👩 Girls",mia-reeves
+#EXTINF:-1 tvg-id="Just__dani" tvg-name="Just__dani" tvg-logo="https://booble.com/avatar/Just__dani.jpeg" group-title="👩 Girls",Just__dani
 https://edge-hls.doppiocdn.media/ping.m3u8
