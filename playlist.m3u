@@ -1,13 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-18 20:54:07 UTC
+# Updated : 2026-09-18 22:33:58 UTC
 # Source  : booble.com
-# Favs    : 2
+# Favs    : 0
 # Girl    : 1
-# Total   : 3
+# Total   : 1
 
-#EXTINF:-1 tvg-id="SexyKajal_758" tvg-name="SexyKajal_758" tvg-logo="https://booble.com/avatar/SexyKajal_758.jpeg" group-title="⭐ Favorites",⭐ SexyKajal_758
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Shivi_darling" tvg-name="Shivi_darling" tvg-logo="https://booble.com/avatar/Shivi_darling.jpeg" group-title="⭐ Favorites",⭐ Shivi_darling
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Baby_Niels" tvg-name="Baby_Niels" tvg-logo="https://booble.com/avatar/Baby_Niels.jpeg" group-title="👩 Girls",Baby_Niels
+#EXTINF:-1 tvg-id="Valeriaduartex" tvg-name="Valeriaduartex" tvg-logo="https://booble.com/avatar/Valeriaduartex.jpeg" group-title="👩 Girls",Valeriaduartex
 https://edge-hls.doppiocdn.media/ping.m3u8
