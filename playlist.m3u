@@ -1,9 +1,11 @@
 #EXTM3U
-# Updated : 2026-09-18 10:35:24 UTC
+# Updated : 2026-09-18 14:57:26 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Girl    : 2
+# Total   : 2
 
-#EXTINF:-1 tvg-id="Assmerising" tvg-name="Assmerising" tvg-logo="https://booble.com/avatar/Assmerising.jpeg" group-title="👩 Girls",Assmerising
+#EXTINF:-1 tvg-id="lunajii" tvg-name="lunajii" tvg-logo="https://booble.com/avatar/lunajii.jpeg" group-title="👩 Girls",lunajii
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="milaivanova" tvg-name="milaivanova" tvg-logo="https://booble.com/avatar/milaivanova.jpeg" group-title="👩 Girls",milaivanova
 https://edge-hls.doppiocdn.media/ping.m3u8
