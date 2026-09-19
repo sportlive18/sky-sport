@@ -1,9 +1,13 @@
 #EXTM3U
-# Updated : 2026-09-18 23:10:34 UTC
+# Updated : 2026-09-19 01:08:26 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Girl    : 3
+# Total   : 3
 
-#EXTINF:-1 tvg-id="lalilamassu1" tvg-name="lalilamassu1" tvg-logo="https://booble.com/avatar/lalilamassu1.jpeg" group-title="👩 Girls",lalilamassu1
+#EXTINF:-1 tvg-id="midnight_snackk" tvg-name="midnight_snackk" tvg-logo="https://booble.com/avatar/midnight_snackk.jpeg" group-title="👩 Girls",midnight_snackk
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="MargoAngel" tvg-name="MargoAngel" tvg-logo="https://booble.com/avatar/MargoAngel.jpeg" group-title="👩 Girls",MargoAngel
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="hello-squirt" tvg-name="hello-squirt" tvg-logo="https://booble.com/avatar/hello-squirt.jpeg" group-title="👩 Girls",hello-squirt
 https://edge-hls.doppiocdn.media/ping.m3u8
