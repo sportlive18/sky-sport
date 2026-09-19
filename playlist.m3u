@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-19 14:18:49 UTC
+# Updated : 2026-09-19 17:55:08 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Mary_Lise" tvg-name="Mary_Lise" tvg-logo="https://booble.com/avatar/Mary_Lise.jpeg" group-title="👩 Girls",Mary_Lise
+https://edge-hls.doppiocdn.media/ping.m3u8
