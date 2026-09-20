@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-20 00:11:32 UTC
+# Updated : 2026-09-20 03:57:15 UTC
 # Source  : booble.com
-# Favs    : 0
+# Favs    : 1
 # Girl    : 0
-# Total   : 0
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Shivani2002" tvg-name="Shivani2002" tvg-logo="https://booble.com/avatar/Shivani2002.jpeg" group-title="⭐ Favorites",⭐ Shivani2002
+https://edge-hls.doppiocdn.media/ping.m3u8
