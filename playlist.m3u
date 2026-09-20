@@ -1,6 +1,11 @@
 #EXTM3U
-# Updated : 2026-09-20 09:12:32 UTC
+# Updated : 2026-09-20 13:40:48 UTC
 # Source  : booble.com
-# Favs    : 0
+# Favs    : 2
 # Girl    : 0
-# Total   : 0
+# Total   : 2
+
+#EXTINF:-1 tvg-id="Priya9874" tvg-name="Priya9874" tvg-logo="https://booble.com/avatar/Priya9874.jpeg" group-title="⭐ Favorites",⭐ Priya9874
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="ramyatamilhot" tvg-name="ramyatamilhot" tvg-logo="https://booble.com/avatar/ramyatamilhot.jpeg" group-title="⭐ Favorites",⭐ ramyatamilhot
+https://edge-hls.doppiocdn.media/ping.m3u8
