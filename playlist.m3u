@@ -1,9 +1,6 @@
 #EXTM3U
-# Updated : 2026-09-19 22:14:05 UTC
+# Updated : 2026-09-20 00:11:32 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
-
-#EXTINF:-1 tvg-id="alana15" tvg-name="alana15" tvg-logo="https://booble.com/avatar/alana15.jpeg" group-title="👩 Girls",alana15
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Girl    : 0
+# Total   : 0
