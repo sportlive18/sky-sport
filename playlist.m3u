@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-21 11:52:00 UTC
+# Updated : 2026-09-21 17:52:01 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Nicolle_foxy" tvg-name="Nicolle_foxy" tvg-logo="https://booble.com/avatar/Nicolle_foxy.jpeg" group-title="👩 Girls",Nicolle_foxy
+https://edge-hls.doppiocdn.media/ping.m3u8
