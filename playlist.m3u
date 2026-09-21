@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-21 17:52:01 UTC
+# Updated : 2026-09-21 21:44:55 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 1
+# Favs    : 1
+# Girl    : 0
 # Total   : 1
 
-#EXTINF:-1 tvg-id="Nicolle_foxy" tvg-name="Nicolle_foxy" tvg-logo="https://booble.com/avatar/Nicolle_foxy.jpeg" group-title="👩 Girls",Nicolle_foxy
+#EXTINF:-1 tvg-id="Ravishing_Roma" tvg-name="Ravishing_Roma" tvg-logo="https://booble.com/avatar/Ravishing_Roma.jpeg" group-title="⭐ Favorites",⭐ Ravishing_Roma
 https://edge-hls.doppiocdn.media/ping.m3u8
