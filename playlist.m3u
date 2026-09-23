@@ -1,11 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-23 07:20:13 UTC
+# Updated : 2026-09-23 13:25:04 UTC
 # Source  : booble.com
-# Favs    : 1
+# Favs    : 0
 # Girl    : 1
-# Total   : 2
+# Total   : 1
 
-#EXTINF:-1 tvg-id="Hotravtapal477" tvg-name="Hotravtapal477" tvg-logo="https://booble.com/avatar/Hotravtapal477.jpeg" group-title="⭐ Favorites",⭐ Hotravtapal477
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Emma-aaaa" tvg-name="Emma-aaaa" tvg-logo="https://booble.com/avatar/Emma-aaaa.jpeg" group-title="👩 Girls",Emma-aaaa
+#EXTINF:-1 tvg-id="HaLa_Madrid20" tvg-name="HaLa_Madrid20" tvg-logo="https://booble.com/avatar/HaLa_Madrid20.jpeg" group-title="👩 Girls",HaLa_Madrid20
 https://edge-hls.doppiocdn.media/ping.m3u8
