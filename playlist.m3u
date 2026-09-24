@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-24 00:23:30 UTC
+# Updated : 2026-09-24 05:58:22 UTC
 # Source  : booble.com
-# Favs    : 0
+# Favs    : 1
 # Girl    : 0
-# Total   : 0
+# Total   : 1
+
+#EXTINF:-1 tvg-id="AadikiAunty" tvg-name="AadikiAunty" tvg-logo="https://booble.com/avatar/AadikiAunty.jpeg" group-title="⭐ Favorites",⭐ AadikiAunty
+https://edge-hls.doppiocdn.media/ping.m3u8
