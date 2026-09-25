@@ -1,9 +1,15 @@
 #EXTM3U
-# Updated : 2026-09-25 01:17:10 UTC
+# Updated : 2026-09-25 07:12:11 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Favs    : 1
+# Girl    : 3
+# Total   : 4
 
-#EXTINF:-1 tvg-id="HuldaAutman" tvg-name="HuldaAutman" tvg-logo="https://booble.com/avatar/HuldaAutman.jpeg" group-title="👩 Girls",HuldaAutman
+#EXTINF:-1 tvg-id="Urdazy" tvg-name="Urdazy" tvg-logo="https://booble.com/avatar/Urdazy.jpeg" group-title="⭐ Favorites",⭐ Urdazy
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Trophy_x_W1fe" tvg-name="Trophy_x_W1fe" tvg-logo="https://booble.com/avatar/Trophy_x_W1fe.jpeg" group-title="👩 Girls",Trophy_x_W1fe
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Sweet_Willow" tvg-name="Sweet_Willow" tvg-logo="https://booble.com/avatar/Sweet_Willow.jpeg" group-title="👩 Girls",Sweet_Willow
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Lexie_Beaumont" tvg-name="Lexie_Beaumont" tvg-logo="https://booble.com/avatar/Lexie_Beaumont.jpeg" group-title="👩 Girls",Lexie_Beaumont
 https://edge-hls.doppiocdn.media/ping.m3u8
