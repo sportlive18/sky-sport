@@ -1,9 +1,11 @@
 #EXTM3U
-# Updated : 2026-09-25 17:57:16 UTC
+# Updated : 2026-09-25 21:12:08 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Girl    : 2
+# Total   : 2
 
-#EXTINF:-1 tvg-id="Achix58" tvg-name="Achix58" tvg-logo="https://booble.com/avatar/Achix58.jpeg" group-title="👩 Girls",Achix58
+#EXTINF:-1 tvg-id="Just__dani" tvg-name="Just__dani" tvg-logo="https://booble.com/avatar/Just__dani.jpeg" group-title="👩 Girls",Just__dani
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="sweet_dream_a" tvg-name="sweet_dream_a" tvg-logo="https://booble.com/avatar/sweet_dream_a.jpeg" group-title="👩 Girls",sweet_dream_a
 https://edge-hls.doppiocdn.media/ping.m3u8
