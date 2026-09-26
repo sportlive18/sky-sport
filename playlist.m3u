@@ -1,9 +1,13 @@
 #EXTM3U
-# Updated : 2026-09-26 13:47:16 UTC
+# Updated : 2026-09-26 17:48:37 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Favs    : 3
+# Girl    : 0
+# Total   : 3
 
-#EXTINF:-1 tvg-id="AnnettSteven" tvg-name="AnnettSteven" tvg-logo="https://booble.com/avatar/AnnettSteven.jpeg" group-title="👩 Girls",AnnettSteven
+#EXTINF:-1 tvg-id="Tinaa_baby" tvg-name="Tinaa_baby" tvg-logo="https://booble.com/avatar/Tinaa_baby.jpeg" group-title="⭐ Favorites",⭐ Tinaa_baby
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="baby-doll-sonai" tvg-name="baby-doll-sonai" tvg-logo="https://booble.com/avatar/baby-doll-sonai.jpeg" group-title="⭐ Favorites",⭐ baby-doll-sonai
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Shivani2002" tvg-name="Shivani2002" tvg-logo="https://booble.com/avatar/Shivani2002.jpeg" group-title="⭐ Favorites",⭐ Shivani2002
 https://edge-hls.doppiocdn.media/ping.m3u8
