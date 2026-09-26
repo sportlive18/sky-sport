@@ -1,9 +1,13 @@
 #EXTM3U
-# Updated : 2026-09-26 03:06:02 UTC
+# Updated : 2026-09-26 08:26:30 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Favs    : 1
+# Girl    : 2
+# Total   : 3
 
-#EXTINF:-1 tvg-id="SexAsian2k" tvg-name="SexAsian2k" tvg-logo="https://booble.com/avatar/SexAsian2k.jpeg" group-title="👩 Girls",SexAsian2k
+#EXTINF:-1 tvg-id="shrutee12" tvg-name="shrutee12" tvg-logo="https://booble.com/avatar/shrutee12.jpeg" group-title="⭐ Favorites",⭐ shrutee12
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="squirtcathy" tvg-name="squirtcathy" tvg-logo="https://booble.com/avatar/squirtcathy.jpeg" group-title="👩 Girls",squirtcathy
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="RosaConnelly" tvg-name="RosaConnelly" tvg-logo="https://booble.com/avatar/RosaConnelly.jpeg" group-title="👩 Girls",RosaConnelly
 https://edge-hls.doppiocdn.media/ping.m3u8
