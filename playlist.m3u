@@ -1,13 +1,6 @@
 #EXTM3U
-# Updated : 2026-09-26 20:44:37 UTC
+# Updated : 2026-09-26 23:31:39 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 2
-# Total   : 3
-
-#EXTINF:-1 tvg-id="Divya_girl" tvg-name="Divya_girl" tvg-logo="https://booble.com/avatar/Divya_girl.jpeg" group-title="⭐ Favorites",⭐ Divya_girl
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="TariLechliter" tvg-name="TariLechliter" tvg-logo="https://booble.com/avatar/TariLechliter.jpeg" group-title="👩 Girls",TariLechliter
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Lucky_sasha" tvg-name="Lucky_sasha" tvg-logo="https://booble.com/avatar/Lucky_sasha.jpeg" group-title="👩 Girls",Lucky_sasha
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Favs    : 0
+# Girl    : 0
+# Total   : 0
