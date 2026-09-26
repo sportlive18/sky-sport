@@ -1,13 +1,13 @@
 #EXTM3U
-# Updated : 2026-09-26 17:48:37 UTC
+# Updated : 2026-09-26 20:44:37 UTC
 # Source  : booble.com
-# Favs    : 3
-# Girl    : 0
+# Favs    : 1
+# Girl    : 2
 # Total   : 3
 
-#EXTINF:-1 tvg-id="Tinaa_baby" tvg-name="Tinaa_baby" tvg-logo="https://booble.com/avatar/Tinaa_baby.jpeg" group-title="⭐ Favorites",⭐ Tinaa_baby
+#EXTINF:-1 tvg-id="Divya_girl" tvg-name="Divya_girl" tvg-logo="https://booble.com/avatar/Divya_girl.jpeg" group-title="⭐ Favorites",⭐ Divya_girl
 https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="baby-doll-sonai" tvg-name="baby-doll-sonai" tvg-logo="https://booble.com/avatar/baby-doll-sonai.jpeg" group-title="⭐ Favorites",⭐ baby-doll-sonai
+#EXTINF:-1 tvg-id="TariLechliter" tvg-name="TariLechliter" tvg-logo="https://booble.com/avatar/TariLechliter.jpeg" group-title="👩 Girls",TariLechliter
 https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Shivani2002" tvg-name="Shivani2002" tvg-logo="https://booble.com/avatar/Shivani2002.jpeg" group-title="⭐ Favorites",⭐ Shivani2002
+#EXTINF:-1 tvg-id="Lucky_sasha" tvg-name="Lucky_sasha" tvg-logo="https://booble.com/avatar/Lucky_sasha.jpeg" group-title="👩 Girls",Lucky_sasha
 https://edge-hls.doppiocdn.media/ping.m3u8
