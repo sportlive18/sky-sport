@@ -1,11 +1,11 @@
 #EXTM3U
-# Updated : 2026-09-27 03:08:17 UTC
+# Updated : 2026-09-27 09:03:26 UTC
 # Source  : booble.com
 # Favs    : 0
 # Girl    : 2
 # Total   : 2
 
-#EXTINF:-1 tvg-id="Sara_SweetXX" tvg-name="Sara_SweetXX" tvg-logo="https://booble.com/avatar/Sara_SweetXX.jpeg" group-title="👩 Girls",Sara_SweetXX
+#EXTINF:-1 tvg-id="SashaCatt" tvg-name="SashaCatt" tvg-logo="https://booble.com/avatar/SashaCatt.jpeg" group-title="👩 Girls",SashaCatt
 https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="eva-2023" tvg-name="eva-2023" tvg-logo="https://booble.com/avatar/eva-2023.jpeg" group-title="👩 Girls",eva-2023
+#EXTINF:-1 tvg-id="Aoki_sweet" tvg-name="Aoki_sweet" tvg-logo="https://booble.com/avatar/Aoki_sweet.jpeg" group-title="👩 Girls",Aoki_sweet
 https://edge-hls.doppiocdn.media/ping.m3u8
