@@ -1,9 +1,11 @@
 #EXTM3U
-# Updated : 2026-09-28 06:26:24 UTC
+# Updated : 2026-09-28 15:02:27 UTC
 # Source  : booble.com
-# Favs    : 0
+# Favs    : 1
 # Girl    : 1
-# Total   : 1
+# Total   : 2
 
-#EXTINF:-1 tvg-id="Aida_moreno" tvg-name="Aida_moreno" tvg-logo="https://booble.com/avatar/Aida_moreno.jpeg" group-title="👩 Girls",Aida_moreno
+#EXTINF:-1 tvg-id="Queen_alisha" tvg-name="Queen_alisha" tvg-logo="https://booble.com/avatar/Queen_alisha.jpeg" group-title="⭐ Favorites",⭐ Queen_alisha
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Courtney_Luv" tvg-name="Courtney_Luv" tvg-logo="https://booble.com/avatar/Courtney_Luv.jpeg" group-title="👩 Girls",Courtney_Luv
 https://edge-hls.doppiocdn.media/ping.m3u8
