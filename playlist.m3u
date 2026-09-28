@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-09-28 00:24:55 UTC
+# Updated : 2026-09-28 06:26:24 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 0
+# Favs    : 0
+# Girl    : 1
 # Total   : 1
 
-#EXTINF:-1 tvg-id="ANURANI99" tvg-name="ANURANI99" tvg-logo="https://booble.com/avatar/ANURANI99.jpeg" group-title="⭐ Favorites",⭐ ANURANI99
+#EXTINF:-1 tvg-id="Aida_moreno" tvg-name="Aida_moreno" tvg-logo="https://booble.com/avatar/Aida_moreno.jpeg" group-title="👩 Girls",Aida_moreno
 https://edge-hls.doppiocdn.media/ping.m3u8
