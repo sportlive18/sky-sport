@@ -1,6 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-01 14:18:58 UTC
+# Updated : 2026-10-01 20:19:09 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Favs    : 1
+# Girl    : 1
+# Total   : 2
+
+#EXTINF:-1 tvg-id="only-soniya" tvg-name="only-soniya" tvg-logo="https://booble.com/avatar/only-soniya.jpeg" group-title="⭐ Favorites",⭐ only-soniya
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="ViolettLuxe" tvg-name="ViolettLuxe" tvg-logo="https://booble.com/avatar/ViolettLuxe.jpeg" group-title="👩 Girls",ViolettLuxe
+https://edge-hls.doppiocdn.media/ping.m3u8
