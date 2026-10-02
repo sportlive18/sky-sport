@@ -1,11 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-02 06:46:09 UTC
+# Updated : 2026-10-02 13:38:45 UTC
 # Source  : booble.com
 # Favs    : 1
 # Girl    : 1
 # Total   : 2
 
-#EXTINF:-1 tvg-id="Annu_76" tvg-name="Annu_76" tvg-logo="https://booble.com/avatar/Annu_76.jpeg" group-title="⭐ Favorites",⭐ Annu_76
+#EXTINF:-1 tvg-id="oo_yes_bhabhi" tvg-name="oo_yes_bhabhi" tvg-logo="https://booble.com/avatar/oo_yes_bhabhi.jpeg" group-title="⭐ Favorites",⭐ oo_yes_bhabhi
 https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Hot_pooja2" tvg-name="Hot_pooja2" tvg-logo="https://booble.com/avatar/Hot_pooja2.jpeg" group-title="👩 Girls",Hot_pooja2
+#EXTINF:-1 tvg-id="altbarbiesee" tvg-name="altbarbiesee" tvg-logo="https://booble.com/avatar/altbarbiesee.jpeg" group-title="👩 Girls",altbarbiesee
 https://edge-hls.doppiocdn.media/ping.m3u8
