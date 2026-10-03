@@ -1,15 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-03 19:54:25 UTC
+# Updated : 2026-10-03 22:48:41 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 4
-# Total   : 4
+# Girl    : 1
+# Total   : 1
 
-#EXTINF:-1 tvg-id="vanessaparadiza" tvg-name="vanessaparadiza" tvg-logo="https://booble.com/avatar/vanessaparadiza.jpeg" group-title="👩 Girls",vanessaparadiza
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Lorene_Saenz" tvg-name="Lorene_Saenz" tvg-logo="https://booble.com/avatar/Lorene_Saenz.jpeg" group-title="👩 Girls",Lorene_Saenz
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Rossaray" tvg-name="Rossaray" tvg-logo="https://booble.com/avatar/Rossaray.jpeg" group-title="👩 Girls",Rossaray
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="AXX_XA" tvg-name="AXX_XA" tvg-logo="https://booble.com/avatar/AXX_XA.jpeg" group-title="👩 Girls",AXX_XA
+#EXTINF:-1 tvg-id="KimJonesVs" tvg-name="KimJonesVs" tvg-logo="https://booble.com/avatar/KimJonesVs.jpeg" group-title="👩 Girls",KimJonesVs
 https://edge-hls.doppiocdn.media/ping.m3u8
