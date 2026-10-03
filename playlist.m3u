@@ -1,6 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-03 13:08:42 UTC
+# Updated : 2026-10-03 17:10:25 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 2
+# Total   : 2
+
+#EXTINF:-1 tvg-id="LilluKatten" tvg-name="LilluKatten" tvg-logo="https://booble.com/avatar/LilluKatten.jpeg" group-title="👩 Girls",LilluKatten
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="mysteriouscat25" tvg-name="mysteriouscat25" tvg-logo="https://booble.com/avatar/mysteriouscat25.jpeg" group-title="👩 Girls",mysteriouscat25
+https://edge-hls.doppiocdn.media/ping.m3u8
