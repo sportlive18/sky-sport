@@ -1,13 +1,6 @@
 #EXTM3U
-# Updated : 2026-10-04 09:26:47 UTC
+# Updated : 2026-10-04 15:17:06 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 2
-# Total   : 3
-
-#EXTINF:-1 tvg-id="Ass_big_girl" tvg-name="Ass_big_girl" tvg-logo="https://booble.com/avatar/Ass_big_girl.jpeg" group-title="⭐ Favorites",⭐ Ass_big_girl
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Marry_Cordy" tvg-name="Marry_Cordy" tvg-logo="https://booble.com/avatar/Marry_Cordy.jpeg" group-title="👩 Girls",Marry_Cordy
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="SaraRace" tvg-name="SaraRace" tvg-logo="https://booble.com/avatar/SaraRace.jpeg" group-title="👩 Girls",SaraRace
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Favs    : 0
+# Girl    : 0
+# Total   : 0
