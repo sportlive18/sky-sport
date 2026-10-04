@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-03 22:48:41 UTC
+# Updated : 2026-10-04 02:31:46 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 1
+# Favs    : 1
+# Girl    : 0
 # Total   : 1
 
-#EXTINF:-1 tvg-id="KimJonesVs" tvg-name="KimJonesVs" tvg-logo="https://booble.com/avatar/KimJonesVs.jpeg" group-title="👩 Girls",KimJonesVs
+#EXTINF:-1 tvg-id="RatiprivateMuse" tvg-name="RatiprivateMuse" tvg-logo="https://booble.com/avatar/RatiprivateMuse.jpeg" group-title="⭐ Favorites",⭐ RatiprivateMuse
 https://edge-hls.doppiocdn.media/ping.m3u8
