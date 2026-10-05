@@ -1,13 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-05 17:55:59 UTC
+# Updated : 2026-10-05 23:46:09 UTC
 # Source  : booble.com
-# Favs    : 3
-# Girl    : 0
-# Total   : 3
+# Favs    : 0
+# Girl    : 1
+# Total   : 1
 
-#EXTINF:-1 tvg-id="cute_girl_29" tvg-name="cute_girl_29" tvg-logo="https://booble.com/avatar/cute_girl_29.jpeg" group-title="⭐ Favorites",⭐ cute_girl_29
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Cute_si_ladki" tvg-name="Cute_si_ladki" tvg-logo="https://booble.com/avatar/Cute_si_ladki.jpeg" group-title="⭐ Favorites",⭐ Cute_si_ladki
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Lucey_001" tvg-name="Lucey_001" tvg-logo="https://booble.com/avatar/Lucey_001.jpeg" group-title="⭐ Favorites",⭐ Lucey_001
+#EXTINF:-1 tvg-id="LoveSeekins" tvg-name="LoveSeekins" tvg-logo="https://booble.com/avatar/LoveSeekins.jpeg" group-title="👩 Girls",LoveSeekins
 https://edge-hls.doppiocdn.media/ping.m3u8
