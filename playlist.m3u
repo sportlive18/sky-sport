@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-05 01:40:11 UTC
+# Updated : 2026-10-05 08:17:29 UTC
 # Source  : booble.com
-# Favs    : 0
+# Favs    : 1
 # Girl    : 0
-# Total   : 0
+# Total   : 1
+
+#EXTINF:-1 tvg-id="diamond__girl" tvg-name="diamond__girl" tvg-logo="https://booble.com/avatar/diamond__girl.jpeg" group-title="⭐ Favorites",⭐ diamond__girl
+https://edge-hls.doppiocdn.media/ping.m3u8
