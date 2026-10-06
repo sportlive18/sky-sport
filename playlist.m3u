@@ -1,9 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-05 23:46:09 UTC
+# Updated : 2026-10-06 04:25:00 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Girl    : 2
+# Total   : 2
 
-#EXTINF:-1 tvg-id="LoveSeekins" tvg-name="LoveSeekins" tvg-logo="https://booble.com/avatar/LoveSeekins.jpeg" group-title="👩 Girls",LoveSeekins
+#EXTINF:-1 tvg-id="kittyrosess" tvg-name="kittyrosess" tvg-logo="https://booble.com/avatar/kittyrosess.jpeg" group-title="👩 Girls",kittyrosess
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="trippytrish18" tvg-name="trippytrish18" tvg-logo="https://booble.com/avatar/trippytrish18.jpeg" group-title="👩 Girls",trippytrish18
 https://edge-hls.doppiocdn.media/ping.m3u8
