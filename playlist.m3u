@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-10-07 08:18:38 UTC
+# Updated : 2026-10-07 16:11:15 UTC
 # Source  : booble.com
-# Favs    : 2
+# Favs    : 0
 # Girl    : 0
-# Total   : 2
-
-#EXTINF:-1 tvg-id="Snappy_girl" tvg-name="Snappy_girl" tvg-logo="https://booble.com/avatar/Snappy_girl.jpeg" group-title="⭐ Favorites",⭐ Snappy_girl
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="yourshatakshi" tvg-name="yourshatakshi" tvg-logo="https://booble.com/avatar/yourshatakshi.jpeg" group-title="⭐ Favorites",⭐ yourshatakshi
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Total   : 0
