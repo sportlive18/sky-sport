@@ -1,11 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-07 02:10:40 UTC
+# Updated : 2026-10-07 08:18:38 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 2
+# Favs    : 2
+# Girl    : 0
 # Total   : 2
 
-#EXTINF:-1 tvg-id="LittleMissEeve" tvg-name="LittleMissEeve" tvg-logo="https://booble.com/avatar/LittleMissEeve.jpeg" group-title="👩 Girls",LittleMissEeve
+#EXTINF:-1 tvg-id="Snappy_girl" tvg-name="Snappy_girl" tvg-logo="https://booble.com/avatar/Snappy_girl.jpeg" group-title="⭐ Favorites",⭐ Snappy_girl
 https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Maeve_Banxski" tvg-name="Maeve_Banxski" tvg-logo="https://booble.com/avatar/Maeve_Banxski.jpeg" group-title="👩 Girls",Maeve_Banxski
+#EXTINF:-1 tvg-id="yourshatakshi" tvg-name="yourshatakshi" tvg-logo="https://booble.com/avatar/yourshatakshi.jpeg" group-title="⭐ Favorites",⭐ yourshatakshi
 https://edge-hls.doppiocdn.media/ping.m3u8
