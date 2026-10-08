@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-08 14:31:50 UTC
+# Updated : 2026-10-08 20:41:00 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 0
+# Favs    : 0
+# Girl    : 1
 # Total   : 1
 
-#EXTINF:-1 tvg-id="gunjan_sexy" tvg-name="gunjan_sexy" tvg-logo="https://booble.com/avatar/gunjan_sexy.jpeg" group-title="⭐ Favorites",⭐ gunjan_sexy
+#EXTINF:-1 tvg-id="Linda17340" tvg-name="Linda17340" tvg-logo="https://booble.com/avatar/Linda17340.jpeg" group-title="👩 Girls",Linda17340
 https://edge-hls.doppiocdn.media/ping.m3u8
