@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-10-07 21:15:06 UTC
+# Updated : 2026-10-08 01:03:09 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 2
-# Total   : 2
-
-#EXTINF:-1 tvg-id="LynellMilleson" tvg-name="LynellMilleson" tvg-logo="https://booble.com/avatar/LynellMilleson.jpeg" group-title="👩 Girls",LynellMilleson
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="venus_angeles" tvg-name="venus_angeles" tvg-logo="https://booble.com/avatar/venus_angeles.jpeg" group-title="👩 Girls",venus_angeles
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Girl    : 0
+# Total   : 0
