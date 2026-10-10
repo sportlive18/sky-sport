@@ -1,9 +1,13 @@
 #EXTM3U
-# Updated : 2026-10-09 20:12:36 UTC
+# Updated : 2026-10-10 00:02:40 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 0
-# Total   : 1
+# Favs    : 2
+# Girl    : 1
+# Total   : 3
 
-#EXTINF:-1 tvg-id="cuty-queen" tvg-name="cuty-queen" tvg-logo="https://booble.com/avatar/cuty-queen.jpeg" group-title="⭐ Favorites",⭐ cuty-queen
+#EXTINF:-1 tvg-id="Mallika-collage" tvg-name="Mallika-collage" tvg-logo="https://booble.com/avatar/Mallika-collage.jpeg" group-title="⭐ Favorites",⭐ Mallika-collage
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Mishti_doi" tvg-name="Mishti_doi" tvg-logo="https://booble.com/avatar/Mishti_doi.jpeg" group-title="⭐ Favorites",⭐ Mishti_doi
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="SmileyBabeXXX" tvg-name="SmileyBabeXXX" tvg-logo="https://booble.com/avatar/SmileyBabeXXX.jpeg" group-title="👩 Girls",SmileyBabeXXX
 https://edge-hls.doppiocdn.media/ping.m3u8
