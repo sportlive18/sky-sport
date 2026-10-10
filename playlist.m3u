@@ -1,13 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-10 16:18:41 UTC
+# Updated : 2026-10-10 20:41:21 UTC
 # Source  : booble.com
-# Favs    : 3
-# Girl    : 0
-# Total   : 3
+# Favs    : 0
+# Girl    : 1
+# Total   : 1
 
-#EXTINF:-1 tvg-id="Joyaparveenn" tvg-name="Joyaparveenn" tvg-logo="https://booble.com/avatar/Joyaparveenn.jpeg" group-title="⭐ Favorites",⭐ Joyaparveenn
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="IndianTamil7861" tvg-name="IndianTamil7861" tvg-logo="https://booble.com/avatar/IndianTamil7861.jpeg" group-title="⭐ Favorites",⭐ IndianTamil7861
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="ShamaParvin" tvg-name="ShamaParvin" tvg-logo="https://booble.com/avatar/ShamaParvin.jpeg" group-title="⭐ Favorites",⭐ ShamaParvin
+#EXTINF:-1 tvg-id="VickiSpice" tvg-name="VickiSpice" tvg-logo="https://booble.com/avatar/VickiSpice.jpeg" group-title="👩 Girls",VickiSpice
 https://edge-hls.doppiocdn.media/ping.m3u8
