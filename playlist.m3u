@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-10-11 18:49:45 UTC
+# Updated : 2026-10-11 22:51:36 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 1
-# Total   : 2
-
-#EXTINF:-1 tvg-id="khushi_ji00" tvg-name="khushi_ji00" tvg-logo="https://booble.com/avatar/khushi_ji00.jpeg" group-title="⭐ Favorites",⭐ khushi_ji00
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="JoyFulLicss" tvg-name="JoyFulLicss" tvg-logo="https://booble.com/avatar/JoyFulLicss.jpeg" group-title="👩 Girls",JoyFulLicss
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Favs    : 0
+# Girl    : 0
+# Total   : 0
