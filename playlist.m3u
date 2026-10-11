@@ -1,9 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-11 13:55:40 UTC
+# Updated : 2026-10-11 18:49:45 UTC
 # Source  : booble.com
 # Favs    : 1
-# Girl    : 0
-# Total   : 1
+# Girl    : 1
+# Total   : 2
 
-#EXTINF:-1 tvg-id="Desi_Maya69" tvg-name="Desi_Maya69" tvg-logo="https://booble.com/avatar/Desi_Maya69.jpeg" group-title="⭐ Favorites",⭐ Desi_Maya69
+#EXTINF:-1 tvg-id="khushi_ji00" tvg-name="khushi_ji00" tvg-logo="https://booble.com/avatar/khushi_ji00.jpeg" group-title="⭐ Favorites",⭐ khushi_ji00
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="JoyFulLicss" tvg-name="JoyFulLicss" tvg-logo="https://booble.com/avatar/JoyFulLicss.jpeg" group-title="👩 Girls",JoyFulLicss
 https://edge-hls.doppiocdn.media/ping.m3u8
