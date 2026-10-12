@@ -1,11 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-12 02:11:24 UTC
+# Updated : 2026-10-12 08:56:19 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 2
-# Total   : 2
+# Favs    : 1
+# Girl    : 0
+# Total   : 1
 
-#EXTINF:-1 tvg-id="PollyAgata" tvg-name="PollyAgata" tvg-logo="https://booble.com/avatar/PollyAgata.jpeg" group-title="👩 Girls",PollyAgata
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="SaraWilsoon" tvg-name="SaraWilsoon" tvg-logo="https://booble.com/avatar/SaraWilsoon.jpeg" group-title="👩 Girls",SaraWilsoon
+#EXTINF:-1 tvg-id="Hot_Soniya_08" tvg-name="Hot_Soniya_08" tvg-logo="https://booble.com/avatar/Hot_Soniya_08.jpeg" group-title="⭐ Favorites",⭐ Hot_Soniya_08
 https://edge-hls.doppiocdn.media/ping.m3u8
