@@ -1,6 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-15 07:04:19 UTC
+# Updated : 2026-10-15 12:36:57 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Favs    : 1
+# Girl    : 1
+# Total   : 2
+
+#EXTINF:-1 tvg-id="Hot_jeery10" tvg-name="Hot_jeery10" tvg-logo="https://booble.com/avatar/Hot_jeery10.jpeg" group-title="⭐ Favorites",⭐ Hot_jeery10
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Samantha-grey" tvg-name="Samantha-grey" tvg-logo="https://booble.com/avatar/Samantha-grey.jpeg" group-title="👩 Girls",Samantha-grey
+https://edge-hls.doppiocdn.media/ping.m3u8
