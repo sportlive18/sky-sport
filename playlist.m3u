@@ -1,13 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-15 17:49:08 UTC
+# Updated : 2026-10-15 21:03:04 UTC
 # Source  : booble.com
-# Favs    : 1
+# Favs    : 0
 # Girl    : 2
-# Total   : 3
+# Total   : 2
 
-#EXTINF:-1 tvg-id="avnikaur" tvg-name="avnikaur" tvg-logo="https://booble.com/avatar/avnikaur.jpeg" group-title="⭐ Favorites",⭐ avnikaur
+#EXTINF:-1 tvg-id="nadia_bliss" tvg-name="nadia_bliss" tvg-logo="https://booble.com/avatar/nadia_bliss.jpeg" group-title="👩 Girls",nadia_bliss
 https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="DorothyBlackXXX" tvg-name="DorothyBlackXXX" tvg-logo="https://booble.com/avatar/DorothyBlackXXX.jpeg" group-title="👩 Girls",DorothyBlackXXX
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="katycrown" tvg-name="katycrown" tvg-logo="https://booble.com/avatar/katycrown.jpeg" group-title="👩 Girls",katycrown
+#EXTINF:-1 tvg-id="Sabien_DeMonia" tvg-name="Sabien_DeMonia" tvg-logo="https://booble.com/avatar/Sabien_DeMonia.jpeg" group-title="👩 Girls",Sabien_DeMonia
 https://edge-hls.doppiocdn.media/ping.m3u8
