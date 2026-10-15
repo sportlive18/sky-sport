@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-10-15 21:03:04 UTC
+# Updated : 2026-10-15 23:43:31 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 2
-# Total   : 2
-
-#EXTINF:-1 tvg-id="nadia_bliss" tvg-name="nadia_bliss" tvg-logo="https://booble.com/avatar/nadia_bliss.jpeg" group-title="👩 Girls",nadia_bliss
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Sabien_DeMonia" tvg-name="Sabien_DeMonia" tvg-logo="https://booble.com/avatar/Sabien_DeMonia.jpeg" group-title="👩 Girls",Sabien_DeMonia
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Girl    : 0
+# Total   : 0
