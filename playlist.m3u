@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-10-16 08:00:45 UTC
+# Updated : 2026-10-16 13:09:41 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 1
-# Total   : 2
-
-#EXTINF:-1 tvg-id="HotJasmine61" tvg-name="HotJasmine61" tvg-logo="https://booble.com/avatar/HotJasmine61.jpeg" group-title="⭐ Favorites",⭐ HotJasmine61
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Holly_official" tvg-name="Holly_official" tvg-logo="https://booble.com/avatar/Holly_official.jpeg" group-title="👩 Girls",Holly_official
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Favs    : 0
+# Girl    : 0
+# Total   : 0
