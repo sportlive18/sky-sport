@@ -1,6 +1,15 @@
 #EXTM3U
-# Updated : 2026-10-15 23:43:31 UTC
+# Updated : 2026-10-16 02:47:30 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Favs    : 1
+# Girl    : 3
+# Total   : 4
+
+#EXTINF:-1 tvg-id="Manshi_Love" tvg-name="Manshi_Love" tvg-logo="https://booble.com/avatar/Manshi_Love.jpeg" group-title="⭐ Favorites",⭐ Manshi_Love
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="kulomiyee" tvg-name="kulomiyee" tvg-logo="https://booble.com/avatar/kulomiyee.jpeg" group-title="👩 Girls",kulomiyee
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="yang_empress" tvg-name="yang_empress" tvg-logo="https://booble.com/avatar/yang_empress.jpeg" group-title="👩 Girls",yang_empress
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="whisper_of_love" tvg-name="whisper_of_love" tvg-logo="https://booble.com/avatar/whisper_of_love.jpeg" group-title="👩 Girls",whisper_of_love
+https://edge-hls.doppiocdn.media/ping.m3u8
