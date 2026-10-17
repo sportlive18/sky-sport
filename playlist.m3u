@@ -1,6 +1,13 @@
 #EXTM3U
-# Updated : 2026-10-16 23:25:32 UTC
+# Updated : 2026-10-17 02:39:55 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Favs    : 1
+# Girl    : 2
+# Total   : 3
+
+#EXTINF:-1 tvg-id="sanaya_baby" tvg-name="sanaya_baby" tvg-logo="https://booble.com/avatar/sanaya_baby.jpeg" group-title="⭐ Favorites",⭐ sanaya_baby
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Ema_japanese" tvg-name="Ema_japanese" tvg-logo="https://booble.com/avatar/Ema_japanese.jpeg" group-title="👩 Girls",Ema_japanese
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Aaauiio" tvg-name="Aaauiio" tvg-logo="https://booble.com/avatar/Aaauiio.jpeg" group-title="👩 Girls",Aaauiio
+https://edge-hls.doppiocdn.media/ping.m3u8
