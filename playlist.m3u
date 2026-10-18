@@ -1,11 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-18 07:52:22 UTC
+# Updated : 2026-10-18 12:35:43 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 2
-# Total   : 2
+# Favs    : 1
+# Girl    : 0
+# Total   : 1
 
-#EXTINF:-1 tvg-id="RoxySantaMonica" tvg-name="RoxySantaMonica" tvg-logo="https://booble.com/avatar/RoxySantaMonica.jpeg" group-title="👩 Girls",RoxySantaMonica
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Atenea_cute21" tvg-name="Atenea_cute21" tvg-logo="https://booble.com/avatar/Atenea_cute21.jpeg" group-title="👩 Girls",Atenea_cute21
+#EXTINF:-1 tvg-id="Hot_Niya2" tvg-name="Hot_Niya2" tvg-logo="https://booble.com/avatar/Hot_Niya2.jpeg" group-title="⭐ Favorites",⭐ Hot_Niya2
 https://edge-hls.doppiocdn.media/ping.m3u8
