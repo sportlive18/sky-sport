@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-18 12:35:43 UTC
+# Updated : 2026-10-18 16:31:29 UTC
 # Source  : booble.com
 # Favs    : 1
 # Girl    : 0
 # Total   : 1
 
-#EXTINF:-1 tvg-id="Hot_Niya2" tvg-name="Hot_Niya2" tvg-logo="https://booble.com/avatar/Hot_Niya2.jpeg" group-title="⭐ Favorites",⭐ Hot_Niya2
+#EXTINF:-1 tvg-id="raveena_hot" tvg-name="raveena_hot" tvg-logo="https://booble.com/avatar/raveena_hot.jpeg" group-title="⭐ Favorites",⭐ raveena_hot
 https://edge-hls.doppiocdn.media/ping.m3u8
