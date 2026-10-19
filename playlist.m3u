@@ -1,9 +1,6 @@
 #EXTM3U
-# Updated : 2026-10-19 05:45:45 UTC
+# Updated : 2026-10-19 11:58:04 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
-
-#EXTINF:-1 tvg-id="Sidy-102" tvg-name="Sidy-102" tvg-logo="https://booble.com/avatar/Sidy-102.jpeg" group-title="👩 Girls",Sidy-102
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Girl    : 0
+# Total   : 0
