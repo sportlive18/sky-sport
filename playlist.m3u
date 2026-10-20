@@ -1,6 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-20 12:44:20 UTC
+# Updated : 2026-10-20 17:56:31 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Favs    : 1
+# Girl    : 1
+# Total   : 2
+
+#EXTINF:-1 tvg-id="HASEENA_JI_08" tvg-name="HASEENA_JI_08" tvg-logo="https://booble.com/avatar/HASEENA_JI_08.jpeg" group-title="⭐ Favorites",⭐ HASEENA_JI_08
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="zophies" tvg-name="zophies" tvg-logo="https://booble.com/avatar/zophies.jpeg" group-title="👩 Girls",zophies
+https://edge-hls.doppiocdn.media/ping.m3u8
