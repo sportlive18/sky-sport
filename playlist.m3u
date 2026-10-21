@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-21 00:31:06 UTC
+# Updated : 2026-10-21 05:50:47 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="MalloryVale" tvg-name="MalloryVale" tvg-logo="https://booble.com/avatar/MalloryVale.jpeg" group-title="👩 Girls",MalloryVale
+https://edge-hls.doppiocdn.media/ping.m3u8
