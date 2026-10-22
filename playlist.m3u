@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-21 23:10:39 UTC
+# Updated : 2026-10-22 01:22:33 UTC
 # Source  : booble.com
 # Favs    : 0
 # Girl    : 1
 # Total   : 1
 
-#EXTINF:-1 tvg-id="bootyebonie" tvg-name="bootyebonie" tvg-logo="https://booble.com/avatar/bootyebonie.jpeg" group-title="👩 Girls",bootyebonie
+#EXTINF:-1 tvg-id="yinyinzi5" tvg-name="yinyinzi5" tvg-logo="https://booble.com/avatar/yinyinzi5.jpeg" group-title="👩 Girls",yinyinzi5
 https://edge-hls.doppiocdn.media/ping.m3u8
