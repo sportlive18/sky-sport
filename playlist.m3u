@@ -1,6 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-22 12:55:10 UTC
+# Updated : 2026-10-22 18:03:44 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Favs    : 1
+# Girl    : 1
+# Total   : 2
+
+#EXTINF:-1 tvg-id="hot_ishaani" tvg-name="hot_ishaani" tvg-logo="https://booble.com/avatar/hot_ishaani.jpeg" group-title="⭐ Favorites",⭐ hot_ishaani
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="quiver38" tvg-name="quiver38" tvg-logo="https://booble.com/avatar/quiver38.jpeg" group-title="👩 Girls",quiver38
+https://edge-hls.doppiocdn.media/ping.m3u8
