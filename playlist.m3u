@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-23 19:56:46 UTC
+# Updated : 2026-10-23 23:01:35 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Thee_Squirt_queen" tvg-name="Thee_Squirt_queen" tvg-logo="https://booble.com/avatar/Thee_Squirt_queen.jpeg" group-title="👩 Girls",Thee_Squirt_queen
+https://edge-hls.doppiocdn.media/ping.m3u8
