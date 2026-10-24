@@ -1,6 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-24 12:01:09 UTC
+# Updated : 2026-10-24 15:24:35 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 2
+# Total   : 2
+
+#EXTINF:-1 tvg-id="Nasty_slutty_luc" tvg-name="Nasty_slutty_luc" tvg-logo="https://booble.com/avatar/Nasty_slutty_luc.jpeg" group-title="👩 Girls",Nasty_slutty_luc
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Leydi_Jackson" tvg-name="Leydi_Jackson" tvg-logo="https://booble.com/avatar/Leydi_Jackson.jpeg" group-title="👩 Girls",Leydi_Jackson
+https://edge-hls.doppiocdn.media/ping.m3u8
