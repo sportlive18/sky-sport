@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-26 12:15:03 UTC
+# Updated : 2026-10-26 19:14:22 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="baobao-3344" tvg-name="baobao-3344" tvg-logo="https://booble.com/avatar/baobao-3344.jpeg" group-title="👩 Girls",baobao-3344
+https://edge-hls.doppiocdn.media/ping.m3u8
