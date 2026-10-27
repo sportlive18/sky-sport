@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-26 23:15:08 UTC
+# Updated : 2026-10-27 03:23:58 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Melavine" tvg-name="Melavine" tvg-logo="https://booble.com/avatar/Melavine.jpeg" group-title="👩 Girls",Melavine
+https://edge-hls.doppiocdn.media/ping.m3u8
