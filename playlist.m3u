@@ -1,11 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-28 00:24:29 UTC
+# Updated : 2026-10-28 06:44:04 UTC
 # Source  : booble.com
-# Favs    : 1
+# Favs    : 0
 # Girl    : 1
-# Total   : 2
+# Total   : 1
 
-#EXTINF:-1 tvg-id="xpihu" tvg-name="xpihu" tvg-logo="https://booble.com/avatar/xpihu.jpeg" group-title="⭐ Favorites",⭐ xpihu
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Evelyn_Evyyy" tvg-name="Evelyn_Evyyy" tvg-logo="https://booble.com/avatar/Evelyn_Evyyy.jpeg" group-title="👩 Girls",Evelyn_Evyyy
+#EXTINF:-1 tvg-id="rousse_sanbella" tvg-name="rousse_sanbella" tvg-logo="https://booble.com/avatar/rousse_sanbella.jpeg" group-title="👩 Girls",rousse_sanbella
 https://edge-hls.doppiocdn.media/ping.m3u8
