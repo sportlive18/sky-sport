@@ -1,9 +1,11 @@
 #EXTM3U
-# Updated : 2026-10-28 13:55:33 UTC
+# Updated : 2026-10-28 19:29:23 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 0
-# Total   : 1
+# Favs    : 0
+# Girl    : 2
+# Total   : 2
 
-#EXTINF:-1 tvg-id="Naughty_nikkii" tvg-name="Naughty_nikkii" tvg-logo="https://booble.com/avatar/Naughty_nikkii.jpeg" group-title="⭐ Favorites",⭐ Naughty_nikkii
+#EXTINF:-1 tvg-id="Evelinia" tvg-name="Evelinia" tvg-logo="https://booble.com/avatar/Evelinia.jpeg" group-title="👩 Girls",Evelinia
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="divine_girl" tvg-name="divine_girl" tvg-logo="https://booble.com/avatar/divine_girl.jpeg" group-title="👩 Girls",divine_girl
 https://edge-hls.doppiocdn.media/ping.m3u8
