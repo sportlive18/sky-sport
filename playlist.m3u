@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-28 23:59:36 UTC
+# Updated : 2026-10-29 04:00:42 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Anastacya_Fr" tvg-name="Anastacya_Fr" tvg-logo="https://booble.com/avatar/Anastacya_Fr.jpeg" group-title="👩 Girls",Anastacya_Fr
+https://edge-hls.doppiocdn.media/ping.m3u8
