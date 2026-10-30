@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-30 09:37:40 UTC
+# Updated : 2026-10-30 16:39:21 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="tiny__girl" tvg-name="tiny__girl" tvg-logo="https://booble.com/avatar/tiny__girl.jpeg" group-title="👩 Girls",tiny__girl
+https://edge-hls.doppiocdn.media/ping.m3u8
