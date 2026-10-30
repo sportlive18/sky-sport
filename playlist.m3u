@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-10-29 22:29:00 UTC
+# Updated : 2026-10-30 02:31:49 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Ema_japanese" tvg-name="Ema_japanese" tvg-logo="https://booble.com/avatar/Ema_japanese.jpeg" group-title="👩 Girls",Ema_japanese
+https://edge-hls.doppiocdn.media/ping.m3u8
