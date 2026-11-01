@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-10-31 22:28:08 UTC
+# Updated : 2026-11-01 01:58:47 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 1
-# Total   : 2
-
-#EXTINF:-1 tvg-id="Cute_Riya_1" tvg-name="Cute_Riya_1" tvg-logo="https://booble.com/avatar/Cute_Riya_1.jpeg" group-title="⭐ Favorites",⭐ Cute_Riya_1
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="miaa_velveett" tvg-name="miaa_velveett" tvg-logo="https://booble.com/avatar/miaa_velveett.jpeg" group-title="👩 Girls",miaa_velveett
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Favs    : 0
+# Girl    : 0
+# Total   : 0
