@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-11-01 20:17:24 UTC
+# Updated : 2026-11-02 00:17:28 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 1
-# Total   : 2
-
-#EXTINF:-1 tvg-id="o_yes_bhabhi" tvg-name="o_yes_bhabhi" tvg-logo="https://booble.com/avatar/o_yes_bhabhi.jpeg" group-title="⭐ Favorites",⭐ o_yes_bhabhi
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="CocoBellamy" tvg-name="CocoBellamy" tvg-logo="https://booble.com/avatar/CocoBellamy.jpeg" group-title="👩 Girls",CocoBellamy
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Favs    : 0
+# Girl    : 0
+# Total   : 0
