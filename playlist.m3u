@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-03 15:55:24 UTC
+# Updated : 2026-11-03 21:38:42 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="CookieBit" tvg-name="CookieBit" tvg-logo="https://booble.com/avatar/CookieBit.jpeg" group-title="👩 Girls",CookieBit
+https://edge-hls.doppiocdn.media/ping.m3u8
