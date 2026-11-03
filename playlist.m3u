@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-03 00:29:30 UTC
+# Updated : 2026-11-03 07:41:45 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 0
+# Favs    : 0
+# Girl    : 1
 # Total   : 1
 
-#EXTINF:-1 tvg-id="Sindhu_tamil00" tvg-name="Sindhu_tamil00" tvg-logo="https://booble.com/avatar/Sindhu_tamil00.jpeg" group-title="⭐ Favorites",⭐ Sindhu_tamil00
+#EXTINF:-1 tvg-id="Linriqwi" tvg-name="Linriqwi" tvg-logo="https://booble.com/avatar/Linriqwi.jpeg" group-title="👩 Girls",Linriqwi
 https://edge-hls.doppiocdn.media/ping.m3u8
