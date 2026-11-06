@@ -1,9 +1,6 @@
 #EXTM3U
-# Updated : 2026-11-06 04:45:35 UTC
+# Updated : 2026-11-06 12:51:00 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
-
-#EXTINF:-1 tvg-id="Arya_Black" tvg-name="Arya_Black" tvg-logo="https://booble.com/avatar/Arya_Black.jpeg" group-title="👩 Girls",Arya_Black
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Girl    : 0
+# Total   : 0
