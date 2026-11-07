@@ -1,9 +1,11 @@
 #EXTM3U
-# Updated : 2026-11-07 11:07:28 UTC
+# Updated : 2026-11-07 16:57:48 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Girl    : 2
+# Total   : 2
 
-#EXTINF:-1 tvg-id="TastyTiffy" tvg-name="TastyTiffy" tvg-logo="https://booble.com/avatar/TastyTiffy.jpeg" group-title="👩 Girls",TastyTiffy
+#EXTINF:-1 tvg-id="Midnyt_sky" tvg-name="Midnyt_sky" tvg-logo="https://booble.com/avatar/Midnyt_sky.jpeg" group-title="👩 Girls",Midnyt_sky
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Valeria-escobar" tvg-name="Valeria-escobar" tvg-logo="https://booble.com/avatar/Valeria-escobar.jpeg" group-title="👩 Girls",Valeria-escobar
 https://edge-hls.doppiocdn.media/ping.m3u8
