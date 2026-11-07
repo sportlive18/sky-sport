@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-07 04:11:30 UTC
+# Updated : 2026-11-07 11:07:28 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="TastyTiffy" tvg-name="TastyTiffy" tvg-logo="https://booble.com/avatar/TastyTiffy.jpeg" group-title="👩 Girls",TastyTiffy
+https://edge-hls.doppiocdn.media/ping.m3u8
