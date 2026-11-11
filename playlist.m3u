@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-11 07:38:53 UTC
+# Updated : 2026-11-11 15:58:59 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="DinaCookies" tvg-name="DinaCookies" tvg-logo="https://booble.com/avatar/DinaCookies.jpeg" group-title="👩 Girls",DinaCookies
+https://edge-hls.doppiocdn.media/ping.m3u8
