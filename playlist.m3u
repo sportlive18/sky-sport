@@ -1,9 +1,13 @@
 #EXTM3U
-# Updated : 2026-11-11 15:58:59 UTC
+# Updated : 2026-11-11 22:37:05 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 1
-# Total   : 1
+# Favs    : 1
+# Girl    : 2
+# Total   : 3
 
-#EXTINF:-1 tvg-id="DinaCookies" tvg-name="DinaCookies" tvg-logo="https://booble.com/avatar/DinaCookies.jpeg" group-title="👩 Girls",DinaCookies
+#EXTINF:-1 tvg-id="Little-ayesha" tvg-name="Little-ayesha" tvg-logo="https://booble.com/avatar/Little-ayesha.jpeg" group-title="⭐ Favorites",⭐ Little-ayesha
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Sophiesinxx" tvg-name="Sophiesinxx" tvg-logo="https://booble.com/avatar/Sophiesinxx.jpeg" group-title="👩 Girls",Sophiesinxx
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Nala-Scott" tvg-name="Nala-Scott" tvg-logo="https://booble.com/avatar/Nala-Scott.jpeg" group-title="👩 Girls",Nala-Scott
 https://edge-hls.doppiocdn.media/ping.m3u8
