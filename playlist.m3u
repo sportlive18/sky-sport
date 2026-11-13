@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-11-13 09:11:34 UTC
+# Updated : 2026-11-13 17:11:48 UTC
 # Source  : booble.com
-# Favs    : 1
-# Girl    : 1
-# Total   : 2
-
-#EXTINF:-1 tvg-id="Dhakshayani0405" tvg-name="Dhakshayani0405" tvg-logo="https://booble.com/avatar/Dhakshayani0405.jpeg" group-title="⭐ Favorites",⭐ Dhakshayani0405
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="SweetChubs" tvg-name="SweetChubs" tvg-logo="https://booble.com/avatar/SweetChubs.jpeg" group-title="👩 Girls",SweetChubs
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Favs    : 0
+# Girl    : 0
+# Total   : 0
