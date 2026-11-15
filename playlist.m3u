@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-15 01:40:58 UTC
+# Updated : 2026-11-15 08:54:40 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="TheElegantGoddess" tvg-name="TheElegantGoddess" tvg-logo="https://booble.com/avatar/TheElegantGoddess.jpeg" group-title="👩 Girls",TheElegantGoddess
+https://edge-hls.doppiocdn.media/ping.m3u8
