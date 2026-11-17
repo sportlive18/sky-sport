@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-16 17:59:51 UTC
+# Updated : 2026-11-17 01:36:17 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Nandahotcasada" tvg-name="Nandahotcasada" tvg-logo="https://booble.com/avatar/Nandahotcasada.jpeg" group-title="👩 Girls",Nandahotcasada
+https://edge-hls.doppiocdn.media/ping.m3u8
