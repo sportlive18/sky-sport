@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-19 08:31:04 UTC
+# Updated : 2026-11-19 18:08:44 UTC
 # Source  : booble.com
-# Favs    : 0
+# Favs    : 1
 # Girl    : 0
-# Total   : 0
+# Total   : 1
+
+#EXTINF:-1 tvg-id="elephant6" tvg-name="elephant6" tvg-logo="https://booble.com/avatar/elephant6.jpeg" group-title="⭐ Favorites",⭐ elephant6
+https://edge-hls.doppiocdn.media/ping.m3u8
