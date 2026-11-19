@@ -1,9 +1,6 @@
 #EXTM3U
-# Updated : 2026-11-18 18:48:42 UTC
+# Updated : 2026-11-19 01:06:28 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 1
-# Total   : 1
-
-#EXTINF:-1 tvg-id="zhizhi03" tvg-name="zhizhi03" tvg-logo="https://booble.com/avatar/zhizhi03.jpeg" group-title="👩 Girls",zhizhi03
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Girl    : 0
+# Total   : 0
