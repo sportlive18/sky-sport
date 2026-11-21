@@ -1,13 +1,11 @@
 #EXTM3U
-# Updated : 2026-11-21 18:56:20 UTC
+# Updated : 2026-11-21 23:52:48 UTC
 # Source  : booble.com
 # Favs    : 2
-# Girl    : 1
-# Total   : 3
+# Girl    : 0
+# Total   : 2
 
-#EXTINF:-1 tvg-id="sonali_your" tvg-name="sonali_your" tvg-logo="https://booble.com/avatar/sonali_your.jpeg" group-title="⭐ Favorites",⭐ sonali_your
+#EXTINF:-1 tvg-id="AditiLustt" tvg-name="AditiLustt" tvg-logo="https://booble.com/avatar/AditiLustt.jpeg" group-title="⭐ Favorites",⭐ AditiLustt
 https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="dimpyi" tvg-name="dimpyi" tvg-logo="https://booble.com/avatar/dimpyi.jpeg" group-title="⭐ Favorites",⭐ dimpyi
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Ni_Tran" tvg-name="Ni_Tran" tvg-logo="https://booble.com/avatar/Ni_Tran.jpeg" group-title="👩 Girls",Ni_Tran
+#EXTINF:-1 tvg-id="misti-boudii" tvg-name="misti-boudii" tvg-logo="https://booble.com/avatar/misti-boudii.jpeg" group-title="⭐ Favorites",⭐ misti-boudii
 https://edge-hls.doppiocdn.media/ping.m3u8
