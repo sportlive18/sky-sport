@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-21 03:55:02 UTC
+# Updated : 2026-11-21 12:12:11 UTC
 # Source  : booble.com
-# Favs    : 0
+# Favs    : 1
 # Girl    : 0
-# Total   : 0
+# Total   : 1
+
+#EXTINF:-1 tvg-id="zawadi_Savita1" tvg-name="zawadi_Savita1" tvg-logo="https://booble.com/avatar/zawadi_Savita1.jpeg" group-title="⭐ Favorites",⭐ zawadi_Savita1
+https://edge-hls.doppiocdn.media/ping.m3u8
