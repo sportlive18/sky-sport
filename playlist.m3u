@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-22 20:26:07 UTC
+# Updated : 2026-11-23 01:30:19 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Liviabastos" tvg-name="Liviabastos" tvg-logo="https://booble.com/avatar/Liviabastos.jpeg" group-title="👩 Girls",Liviabastos
+https://edge-hls.doppiocdn.media/ping.m3u8
