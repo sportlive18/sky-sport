@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-23 01:30:19 UTC
+# Updated : 2026-11-23 10:18:43 UTC
 # Source  : booble.com
 # Favs    : 0
 # Girl    : 1
 # Total   : 1
 
-#EXTINF:-1 tvg-id="Liviabastos" tvg-name="Liviabastos" tvg-logo="https://booble.com/avatar/Liviabastos.jpeg" group-title="👩 Girls",Liviabastos
+#EXTINF:-1 tvg-id="love-jiaxin" tvg-name="love-jiaxin" tvg-logo="https://booble.com/avatar/love-jiaxin.jpeg" group-title="👩 Girls",love-jiaxin
 https://edge-hls.doppiocdn.media/ping.m3u8
