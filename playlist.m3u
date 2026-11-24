@@ -1,6 +1,11 @@
 #EXTM3U
-# Updated : 2026-11-24 06:52:21 UTC
+# Updated : 2026-11-24 18:48:25 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Favs    : 1
+# Girl    : 1
+# Total   : 2
+
+#EXTINF:-1 tvg-id="Tasty_LushDesire" tvg-name="Tasty_LushDesire" tvg-logo="https://booble.com/avatar/Tasty_LushDesire.jpeg" group-title="⭐ Favorites",⭐ Tasty_LushDesire
+https://edge-hls.doppiocdn.media/ping.m3u8
+#EXTINF:-1 tvg-id="Hannah-2007" tvg-name="Hannah-2007" tvg-logo="https://booble.com/avatar/Hannah-2007.jpeg" group-title="👩 Girls",Hannah-2007
+https://edge-hls.doppiocdn.media/ping.m3u8
