@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-25 03:07:15 UTC
+# Updated : 2026-11-25 12:10:59 UTC
 # Source  : booble.com
 # Favs    : 0
-# Girl    : 0
-# Total   : 0
+# Girl    : 1
+# Total   : 1
+
+#EXTINF:-1 tvg-id="VikiiSweet" tvg-name="VikiiSweet" tvg-logo="https://booble.com/avatar/VikiiSweet.jpeg" group-title="👩 Girls",VikiiSweet
+https://edge-hls.doppiocdn.media/ping.m3u8
