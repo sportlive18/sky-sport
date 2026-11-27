@@ -1,11 +1,6 @@
 #EXTM3U
-# Updated : 2026-11-26 22:57:08 UTC
+# Updated : 2026-11-27 04:56:08 UTC
 # Source  : booble.com
-# Favs    : 2
+# Favs    : 0
 # Girl    : 0
-# Total   : 2
-
-#EXTINF:-1 tvg-id="mansi201" tvg-name="mansi201" tvg-logo="https://booble.com/avatar/mansi201.jpeg" group-title="⭐ Favorites",⭐ mansi201
-https://edge-hls.doppiocdn.media/ping.m3u8
-#EXTINF:-1 tvg-id="Baby__Shreya" tvg-name="Baby__Shreya" tvg-logo="https://booble.com/avatar/Baby__Shreya.jpeg" group-title="⭐ Favorites",⭐ Baby__Shreya
-https://edge-hls.doppiocdn.media/ping.m3u8
+# Total   : 0
