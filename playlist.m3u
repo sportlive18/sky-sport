@@ -1,6 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-27 14:47:44 UTC
+# Updated : 2026-11-27 23:21:19 UTC
 # Source  : booble.com
-# Favs    : 0
+# Favs    : 1
 # Girl    : 0
-# Total   : 0
+# Total   : 1
+
+#EXTINF:-1 tvg-id="Indian_liza1" tvg-name="Indian_liza1" tvg-logo="https://booble.com/avatar/Indian_liza1.jpeg" group-title="⭐ Favorites",⭐ Indian_liza1
+https://edge-hls.doppiocdn.media/ping.m3u8
