@@ -1,9 +1,9 @@
 #EXTM3U
-# Updated : 2026-11-28 06:00:41 UTC
+# Updated : 2026-11-28 15:06:08 UTC
 # Source  : booble.com
-# Favs    : 0
-# Girl    : 1
+# Favs    : 1
+# Girl    : 0
 # Total   : 1
 
-#EXTINF:-1 tvg-id="fnanno" tvg-name="fnanno" tvg-logo="https://booble.com/avatar/fnanno.jpeg" group-title="👩 Girls",fnanno
+#EXTINF:-1 tvg-id="HotLoomaraj29" tvg-name="HotLoomaraj29" tvg-logo="https://booble.com/avatar/HotLoomaraj29.jpeg" group-title="⭐ Favorites",⭐ HotLoomaraj29
 https://edge-hls.doppiocdn.media/ping.m3u8
